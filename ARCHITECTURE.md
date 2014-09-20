@@ -14,3 +14,7 @@ Speculative decoding wins when the draft's acceptance rate is high and the
 draft is cheap. Two failure modes ruin the bet:
 
 1. **Acceptance drift** - a draft model that used to mirror the target
+   (fine-tuned checkpoints drift apart) stops being accepted. Marlin
+   detects this from a sliding acceptance window and backs the draft off.
+2. **Cache pressure** - each draft proposal occupies KV-cache slots that
+   the target engine would otherwise use for real work. When the target
