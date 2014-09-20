@@ -18,3 +18,6 @@ draft is cheap. Two failure modes ruin the bet:
    detects this from a sliding acceptance window and backs the draft off.
 2. **Cache pressure** - each draft proposal occupies KV-cache slots that
    the target engine would otherwise use for real work. When the target
+   engine runs out of cache, it recomputes (or worse, degrades). Marlin
+   prices every proposal's footprint and admits drafts only under the
+   headroom budget.
