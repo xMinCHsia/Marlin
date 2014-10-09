@@ -35,3 +35,6 @@ draft is cheap. Two failure modes ruin the bet:
 | `internal/tuning` | draft-length autotuner |
 | `pkg/plan` | deterministic execution plans |
 
+## Request flow
+
+1. A request arrives with a token budget (`budget`).
