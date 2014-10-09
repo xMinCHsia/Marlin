@@ -31,3 +31,7 @@ draft is cheap. Two failure modes ruin the bet:
 | `internal/admission` | KV-cache-aware admission control |
 | `internal/draft` | ensemble composition + sampling |
 | `internal/accept` | rejection statistics + drift detection |
+| `internal/kvcache` | cache memory tracker |
+| `internal/tuning` | draft-length autotuner |
+| `pkg/plan` | deterministic execution plans |
+
