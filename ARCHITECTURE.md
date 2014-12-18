@@ -45,3 +45,7 @@ draft is cheap. Two failure modes ruin the bet:
 4. The target engine verifies proposals; `reject.Record` tallies verdicts
    per draft.
 5. `statistics.Window` updates acceptance rates; drift over 15% triggers
+   `tuning` to shrink that draft's length one step per probe interval.
+6. The whole exchange is captured as a `plan` with a deterministic hash
+   for replay and auditing.
+
