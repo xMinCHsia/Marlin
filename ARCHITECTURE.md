@@ -42,3 +42,6 @@ draft is cheap. Two failure modes ruin the bet:
    respecting each draft's `max_proposal_len`.
 3. `admission.Admit` prices the total footprint; rejected drafts back
    off exponentially and the request proceeds with fewer candidates.
+4. The target engine verifies proposals; `reject.Record` tallies verdicts
+   per draft.
+5. `statistics.Window` updates acceptance rates; drift over 15% triggers
