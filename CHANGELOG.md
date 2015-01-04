@@ -7,3 +7,7 @@ All notable changes to Marlin are documented here.
 
 ### Added
 - config defaults applied on load for minimal configuration documents
+
+### Changed
+- sampler clamps negative scores via a shared helper
+- ensemble hoists the weight total out of the composition loop
