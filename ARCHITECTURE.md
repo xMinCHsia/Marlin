@@ -49,3 +49,6 @@ draft is cheap. Two failure modes ruin the bet:
 6. The whole exchange is captured as a `plan` with a deterministic hash
    for replay and auditing.
 
+## Why the plan is hashed
+
+Every request plan is reproducible from its inputs (drafts, weights,
