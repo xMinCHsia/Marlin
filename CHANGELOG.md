@@ -25,3 +25,7 @@ All notable changes to Marlin are documented here.
 
 ### Added
 - draft-length autotuner (`internal/tuning`)
+- per-draft statistics endpoint
+
+### Changed
+- proposal plans now carry a deterministic summary hash (breaking format)
