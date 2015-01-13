@@ -21,3 +21,7 @@ All notable changes to Marlin are documented here.
 ### Changed
 - admission backoff exponentiation bounds the wait by request timeout
 
+## [2.0.0] - 2025-10-07
+
+### Added
+- draft-length autotuner (`internal/tuning`)
