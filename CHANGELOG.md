@@ -43,3 +43,6 @@ All notable changes to Marlin are documented here.
 - ensemble composition with weight split
 
 ## [0.3.0] - 2023-11-08
+
+### Added
+- KV-cache admission control with exponential backoff
