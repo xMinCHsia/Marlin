@@ -46,3 +46,7 @@ All notable changes to Marlin are documented here.
 
 ### Added
 - KV-cache admission control with exponential backoff
+- `/v1/status` summary endpoint
+
+## [0.2.0] - 2023-03-17
+
