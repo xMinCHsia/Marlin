@@ -10,3 +10,5 @@ memory on the serving path.
 - API or plan-format changes require: CHANGELOG entry, PROTOCOL update
   and a DESIGN note.
 - Tests must cover failure paths: over-budget admission, drift, empty
+  ensembles, zero-score sampling.
+
