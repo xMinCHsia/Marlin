@@ -11,3 +11,6 @@ lets the target verify.
 ## The economics of speculation
 
 Speculative decoding wins when the draft's acceptance rate is high and the
+draft is cheap. Two failure modes ruin the bet:
+
+1. **Acceptance drift** - a draft model that used to mirror the target
