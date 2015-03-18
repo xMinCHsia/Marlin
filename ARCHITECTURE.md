@@ -24,3 +24,7 @@ draft is cheap. Two failure modes ruin the bet:
 
 ## Components
 
+| Component | Responsibility |
+|---|---|
+| `marlind` | orchestrator daemon, HTTP surface |
+| `marlinctl` | operator CLI |
