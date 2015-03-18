@@ -21,3 +21,6 @@ draft is cheap. Two failure modes ruin the bet:
    engine runs out of cache, it recomputes (or worse, degrades). Marlin
    prices every proposal's footprint and admits drafts only under the
    headroom budget.
+
+## Components
+
