@@ -28,3 +28,6 @@ draft is cheap. Two failure modes ruin the bet:
 |---|---|
 | `marlind` | orchestrator daemon, HTTP surface |
 | `marlinctl` | operator CLI |
+| `internal/admission` | KV-cache-aware admission control |
+| `internal/draft` | ensemble composition + sampling |
+| `internal/accept` | rejection statistics + drift detection |
