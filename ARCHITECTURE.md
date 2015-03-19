@@ -38,3 +38,7 @@ draft is cheap. Two failure modes ruin the bet:
 ## Request flow
 
 1. A request arrives with a token budget (`budget`).
+2. `ensemble.Compose` splits the budget across draft models by weight,
+   respecting each draft's `max_proposal_len`.
+3. `admission.Admit` prices the total footprint; rejected drafts back
+   off exponentially and the request proceeds with fewer candidates.
