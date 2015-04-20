@@ -14,3 +14,7 @@ All notable changes to Marlin are documented here.
 
 ## [2.1.0] - 2026-03-12
 
+### Added
+- `marlinctl plans` with plan hash listing
+- drift baseline snapshots per draft
+
