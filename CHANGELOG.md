@@ -18,3 +18,6 @@ All notable changes to Marlin are documented here.
 - `marlinctl plans` with plan hash listing
 - drift baseline snapshots per draft
 
+### Changed
+- admission backoff exponentiation bounds the wait by request timeout
+
