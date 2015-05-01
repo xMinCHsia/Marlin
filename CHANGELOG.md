@@ -29,3 +29,6 @@ All notable changes to Marlin are documented here.
 
 ### Changed
 - proposal plans now carry a deterministic summary hash (breaking format)
+
+## [1.2.0] - 2025-04-15
+
