@@ -32,3 +32,7 @@ All notable changes to Marlin are documented here.
 
 ## [1.2.0] - 2025-04-15
 
+### Added
+- sliding acceptance window with drift detection
+- `POST /v1/tune` force pass
+
