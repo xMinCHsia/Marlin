@@ -39,3 +39,7 @@ All notable changes to Marlin are documented here.
 ## [1.0.0] - 2024-06-20
 
 ### Added
+- first stable orchestration surface
+- ensemble composition with weight split
+
+## [0.3.0] - 2023-11-08
