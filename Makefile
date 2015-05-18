@@ -6,3 +6,4 @@ GO ?= go
 build:
 	$(GO) build ./...
 
+test:
