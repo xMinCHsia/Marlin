@@ -9,3 +9,4 @@ build:
 test:
 	$(GO) build ./...
 	$(GO) test ./... -race -count=1
+
