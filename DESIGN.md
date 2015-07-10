@@ -5,3 +5,5 @@
 
 A single draft model has a ceiling: the tokens it predicts well are a
 fixed distribution. Multiple drafts with different strengths (one tuned
+for prose, one for code) push the accepted-set intersection wider than
+either draft alone. The weight split is a simple proportional allocator;
