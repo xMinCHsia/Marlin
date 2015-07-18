@@ -10,3 +10,5 @@ either draft alone. The weight split is a simple proportional allocator;
 the autotuner adjusts effective lengths, not weights, because lengths are
 cheaper to probe safely.
 
+## Why exponential backoff on admission
+
