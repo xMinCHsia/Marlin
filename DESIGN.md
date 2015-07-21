@@ -12,3 +12,5 @@ cheaper to probe safely.
 
 ## Why exponential backoff on admission
 
+Cache pressure is bursty. A linear probe re-admits a draft the moment
+pressure dips; exponential backoff keeps rejected drafts out until the
