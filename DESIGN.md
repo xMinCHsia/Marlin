@@ -16,3 +16,5 @@ Cache pressure is bursty. A linear probe re-admits a draft the moment
 pressure dips; exponential backoff keeps rejected drafts out until the
 pressure regime actually changes. The base is `probe_interval_s`, the
 exponent is the number of elapsed intervals - so the wait doubles per
+interval, bounded by the request timeout.
+
