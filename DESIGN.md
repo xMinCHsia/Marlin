@@ -18,3 +18,5 @@ pressure regime actually changes. The base is `probe_interval_s`, the
 exponent is the number of elapsed intervals - so the wait doubles per
 interval, bounded by the request timeout.
 
+## Why a sliding window for acceptance
+
