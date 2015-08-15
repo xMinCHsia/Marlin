@@ -20,3 +20,5 @@ interval, bounded by the request timeout.
 
 ## Why a sliding window for acceptance
 
+A running average never forgets: after a target model update, a draft's
+long history masks the new regime for thousands of requests. The window
