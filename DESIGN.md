@@ -22,3 +22,5 @@ interval, bounded by the request timeout.
 
 A running average never forgets: after a target model update, a draft's
 long history masks the new regime for thousands of requests. The window
+(64 events) forgets in minutes, and the baseline snapshot makes drift a
+*difference*, not an absolute threshold - a weak draft that was always
