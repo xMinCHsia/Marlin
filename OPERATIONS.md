@@ -9,3 +9,6 @@ One static binary plus one YAML document:
 $ make build
 $ install -m 0755 bin/marlind /usr/local/bin/marlind
 $ install -m 0644 marlin.yaml.example /etc/marlin/marlin.yaml
+$ systemctl start marlin
+```
+
