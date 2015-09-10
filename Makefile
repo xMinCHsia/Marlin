@@ -11,3 +11,5 @@ test:
 	$(GO) test ./... -race -count=1
 
 vet:
+	$(GO) vet ./...
+
