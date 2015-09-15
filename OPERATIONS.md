@@ -34,3 +34,6 @@ $ marlinctl -addr localhost:8590 drafts      # per-draft acceptance stats
 $ marlinctl -addr localhost:8590 plans       # recent plan hashes
 $ marlinctl -addr localhost:8590 tune        # force a tuning pass
 ```
+
+## Tuning the ensemble
+
