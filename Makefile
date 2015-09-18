@@ -13,3 +13,4 @@ test:
 vet:
 	$(GO) vet ./...
 
+bench:
