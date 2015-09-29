@@ -19,3 +19,7 @@ A request produces one plan:
 POST /v1/plans
 {"request_id":"r-42","budget":12}
 ```
+
+Response:
+
+```json
