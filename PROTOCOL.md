@@ -23,3 +23,6 @@ POST /v1/plans
 Response:
 
 ```json
+{
+  "request_id": "r-42",
+  "target": "http://127.0.0.1:8000",
