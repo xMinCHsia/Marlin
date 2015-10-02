@@ -30,3 +30,7 @@ Response:
   "steps": [
     { "draft_id": "draft-small", "tokens": ["the","quick"], "accepted": 2, "len": 2 }
   ],
+  "summary_hash": "9f3ab2c1d4e5f607"
+}
+```
+
