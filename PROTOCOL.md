@@ -34,3 +34,7 @@ Response:
 }
 ```
 
+`accepted` is filled by the target verification pass. The hash covers the
+ordered steps + request id, so identical inputs produce identical plans.
+
+## Draft endpoint contract
