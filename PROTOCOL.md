@@ -38,3 +38,6 @@ Response:
 ordered steps + request id, so identical inputs produce identical plans.
 
 ## Draft endpoint contract
+
+Drafts expose `POST /propose` returning:
+
