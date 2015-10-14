@@ -41,3 +41,7 @@ ordered steps + request id, so identical inputs produce identical plans.
 
 Drafts expose `POST /propose` returning:
 
+```json
+{ "tokens": ["a","b","c"], "logprobs": [0.9, 0.8, 0.7] }
+```
+
