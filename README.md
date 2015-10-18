@@ -14,3 +14,10 @@
 
 ## Table of contents
 
+- [What Marlin actually does](#what-marlin-actually-does)
+- [Features](#features)
+- [Quick start](#quick-start)
+- [How it works](#how-it-works)
+- [Configuration](#configuration)
+- [Operations](#operations)
+- [FAQ](#faq)
