@@ -16,3 +16,4 @@ vet:
 bench:
 	$(GO) test ./... -bench=. -benchmem -run=^$$
 
+run:
