@@ -21,3 +21,10 @@
 - [Configuration](#configuration)
 - [Operations](#operations)
 - [FAQ](#faq)
+- [License](#license)
+
+## What Marlin actually does
+
+Speculative decoding is a bet: most tokens are predictable, so a cheap
+draft model can propose several, and the expensive target only verifies.
+Marlin orchestrates that bet across a *draft ensemble* - multiple draft
