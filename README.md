@@ -71,3 +71,10 @@ $ marlinctl -addr localhost:8590 status
 200 {
   "status": "ok",
   "drafts": 2,
+  "pressure": 0.41
+}
+```
+
+## How it works
+
+1. A request arrives with a token budget.
