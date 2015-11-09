@@ -12,3 +12,6 @@ $ install -m 0644 marlin.yaml.example /etc/marlin/marlin.yaml
 $ systemctl start marlin
 ```
 
+The daemon talks to the target and draft endpoints over plain HTTP inside
+the trusted network.
+
