@@ -18,3 +18,6 @@ the trusted network.
 ## Health checks
 
 ```
+GET /health
+{"status":"ok","drafts":2,"pressure":0.41}
+```
