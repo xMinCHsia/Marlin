@@ -25,3 +25,6 @@ GET /health
 Wire `/health` to the LB. `pressure` is the fraction of the target cache
 budget currently reserved by drafts - a sustained value over 0.9 means
 admission is blocking most proposals.
+
+## Operator commands
+
