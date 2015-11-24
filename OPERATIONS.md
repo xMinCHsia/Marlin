@@ -28,3 +28,6 @@ admission is blocking most proposals.
 
 ## Operator commands
 
+```console
+$ marlinctl -addr localhost:8590 status      # drafts + pressure + rates
+$ marlinctl -addr localhost:8590 drafts      # per-draft acceptance stats
