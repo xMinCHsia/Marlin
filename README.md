@@ -92,3 +92,10 @@ $ marlinctl -addr localhost:8590 status
 | Key | Default | Meaning |
 |---|---|---|
 | `target.max_kv_bytes` | 8 GiB | cache budget reserved for the target |
+| `drafts[].weight` | 1.0 | share of the proposal budget |
+| `drafts[].max_proposal_len` | 8 | ceiling for that draft's proposals |
+| `admission.headroom_ratio` | 0.2 | safety margin kept free |
+| `tuning.enabled` | true | let draft lengths self-adjust |
+
+## Operations
+
