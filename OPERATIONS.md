@@ -37,3 +37,6 @@ $ marlinctl -addr localhost:8590 tune        # force a tuning pass
 
 ## Tuning the ensemble
 
+- `weight` controls budget split. Start with equal weights.
+- `max_proposal_len` is the ceiling per draft - the autotuner moves the
+  effective length between `min_draft_len` and this cap.
