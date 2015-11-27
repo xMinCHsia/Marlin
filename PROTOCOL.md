@@ -1,0 +1,6 @@
+
+# Marlin Protocol
+
+## Orchestration surface
+
+```
