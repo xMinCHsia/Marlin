@@ -15,3 +15,7 @@ POST /v1/tune                      # force a tuning pass
 
 A request produces one plan:
 
+```
+POST /v1/plans
+{"request_id":"r-42","budget":12}
+```
