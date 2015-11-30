@@ -11,3 +11,7 @@ GET  /v1/plans                     # recent plan hashes
 POST /v1/tune                      # force a tuning pass
 ```
 
+## Plan lifecycle
+
+A request produces one plan:
+
