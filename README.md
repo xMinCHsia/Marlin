@@ -107,3 +107,10 @@ rationale for the design choices in [DESIGN.md](DESIGN.md).
 ## FAQ
 
 **Why multiple drafts instead of one?** A single draft has a fixed
+prediction distribution; two drafts with different strengths widen the
+set of accepted tokens - prose tuned for one, code for the other.
+
+**Does Marlin run the target model?** No. It orchestrates existing
+endpoints; the target and drafts are whatever you already serve.
+
+**What happens when the cache is full?** Drafts are simply not admitted -
