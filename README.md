@@ -128,3 +128,10 @@ frozen 1.0 orchestrator ran through nine of them.
 - [x] **M2 - Rejection sampling core** (speculative decode with exact-target equivalence) - closed **2016-11-18**, 11:30 KST
 - [x] **M3 - KV-cache-aware admission** (cache residency drives the accept gate) - closed **2018-05-23**, 16:20 KST
 - [x] **M4 - Self-tuning draft lengths** (window adaptation from accept-rate telemetry) - closed **2019-12-06**, 13:45 KST
+- [x] **M5 - Plan package** (admission plans as inspectable, diffable artifacts) - closed **2021-06-15**, 15:10 KST
+- [x] **M6 - Metrics + tuning loop** (prometheus exporter, online retune) - closed **2022-11-02**, 09:55 KST
+- [x] **M7 - Single-binary deployment** (marlin serve with config reload) - closed **2023-09-28**, 12:00 KST
+- [x] **M8 - Determinism hardening** (same requests, same plan, byte-identical trace) - closed **2024-12-19**, 10:40 KST
+- [x] **M9 - Marlin 1.0 - stable protocol + config freeze** - closed **2026-08-09**, 12:00 KST
+
+### Commits per year - the build log
