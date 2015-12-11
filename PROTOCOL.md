@@ -26,3 +26,7 @@ Response:
 {
   "request_id": "r-42",
   "target": "http://127.0.0.1:8000",
+  "budget": 12,
+  "steps": [
+    { "draft_id": "draft-small", "tokens": ["the","quick"], "accepted": 2, "len": 2 }
+  ],
