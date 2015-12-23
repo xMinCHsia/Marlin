@@ -45,3 +45,7 @@ Drafts expose `POST /propose` returning:
 { "tokens": ["a","b","c"], "logprobs": [0.9, 0.8, 0.7] }
 ```
 
+Marlin caps the request at the tuned length; `logprobs` are used by the
+sampler when merging proposals.
+
+## Admission
