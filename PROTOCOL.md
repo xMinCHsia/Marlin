@@ -49,3 +49,7 @@ Marlin caps the request at the tuned length; `logprobs` are used by the
 sampler when merging proposals.
 
 ## Admission
+
+Admission is server-side and invisible to callers: when a draft is over
+budget, the response simply has fewer steps. `rejected` drafts do not
+appear in the plan - only the accepted exchange does.
