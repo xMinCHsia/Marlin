@@ -35,3 +35,10 @@ Three subsystems make the bet stay profitable:
 1. **The ensemble** - draft candidates are sampled from several models and
    merged into a proposal batch. Composition is a tuning parameter.
 2. **Rejection statistics** - acceptance rate per draft model over a
+   sliding window, with *drift detection*: a draft that used to mirror
+   the target and suddenly does not.
+3. **KV-cache admission control** - drafts consume the same KV-cache the
+   target needs; Marlin prices each proposal and admits drafts only while
+   the target engine stays under its memory budget.
+
+## Features
