@@ -50,3 +50,10 @@ Three subsystems make the bet stay profitable:
 | 📉 **Drift detection** | baseline-vs-window acceptance drop flags stale drafts |
 | 🧠 **Autotuner** | draft lengths move with acceptance, one step per probe |
 | 💾 **Cache admission** | exponential backoff when the target cache budget is tight |
+| 📋 **Deterministic plans** | every request leaves a hashed, replayable plan |
+
+## Quick start
+
+```console
+$ make build
+$ marlind -config marlin.yaml.example
