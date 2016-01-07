@@ -28,3 +28,10 @@
 Speculative decoding is a bet: most tokens are predictable, so a cheap
 draft model can propose several, and the expensive target only verifies.
 Marlin orchestrates that bet across a *draft ensemble* - multiple draft
+models with different strengths - instead of a single draft model.
+
+Three subsystems make the bet stay profitable:
+
+1. **The ensemble** - draft candidates are sampled from several models and
+   merged into a proposal batch. Composition is a tuning parameter.
+2. **Rejection statistics** - acceptance rate per draft model over a
