@@ -42,3 +42,11 @@ Three subsystems make the bet stay profitable:
    the target engine stays under its memory budget.
 
 ## Features
+
+| | |
+|---|---|
+| 🎛 **Ensemble composition** | weight-split budget allocation across drafts, capped per draft |
+| 🎯 **Rejection sampling** | per-token verdicts with sliding-window statistics |
+| 📉 **Drift detection** | baseline-vs-window acceptance drop flags stale drafts |
+| 🧠 **Autotuner** | draft lengths move with acceptance, one step per probe |
+| 💾 **Cache admission** | exponential backoff when the target cache budget is tight |
