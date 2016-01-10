@@ -64,3 +64,10 @@ $ marlind -config marlin.yaml.example
         listening on 127.0.0.1:8590
 ```
 
+Then from another shell:
+
+```console
+$ marlinctl -addr localhost:8590 status
+200 {
+  "status": "ok",
+  "drafts": 2,
