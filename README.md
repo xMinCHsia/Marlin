@@ -57,3 +57,10 @@ Three subsystems make the bet stay profitable:
 ```console
 $ make build
 $ marlind -config marlin.yaml.example
+
+        marlind v2.1.0
+        target : http://127.0.0.1:8000 (8 GiB kv budget)
+        drafts : draft-small(8) draft-code(6)
+        listening on 127.0.0.1:8590
+```
+
