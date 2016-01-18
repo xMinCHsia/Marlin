@@ -78,3 +78,10 @@ $ marlinctl -addr localhost:8590 status
 ## How it works
 
 1. A request arrives with a token budget.
+2. `ensemble.Compose` splits the budget across draft models by weight.
+3. `admission.Admit` prices the total KV footprint; rejected drafts back
+   off exponentially.
+4. The target verifies proposals; verdicts are tallied per draft.
+5. The acceptance window updates; drift over 15% shrinks that draft.
+6. The whole exchange lands in a hashed, replayable plan.
+
