@@ -85,3 +85,10 @@ $ marlinctl -addr localhost:8590 status
 5. The acceptance window updates; drift over 15% shrinks that draft.
 6. The whole exchange lands in a hashed, replayable plan.
 
+## Configuration
+
+`marlin.yaml.example` ships in the repo root. The important knobs:
+
+| Key | Default | Meaning |
+|---|---|---|
+| `target.max_kv_bytes` | 8 GiB | cache budget reserved for the target |
