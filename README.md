@@ -99,3 +99,11 @@ $ marlinctl -addr localhost:8590 status
 
 ## Operations
 
+See [OPERATIONS.md](OPERATIONS.md) for deployment, health checks and
+monitoring guidance, and [PROTOCOL.md](PROTOCOL.md) for the wire contract.
+Architecture details live in [ARCHITECTURE.md](ARCHITECTURE.md) and the
+rationale for the design choices in [DESIGN.md](DESIGN.md).
+
+## FAQ
+
+**Why multiple drafts instead of one?** A single draft has a fixed
