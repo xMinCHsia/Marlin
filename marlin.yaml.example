@@ -2,3 +2,5 @@
 # Marlin orchestrator configuration
 listen_addr: "127.0.0.1:8590"
 
+target:
+  endpoint: "http://127.0.0.1:8000"
