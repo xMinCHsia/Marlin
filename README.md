@@ -114,3 +114,10 @@ set of accepted tokens - prose tuned for one, code for the other.
 endpoints; the target and drafts are whatever you already serve.
 
 **What happens when the cache is full?** Drafts are simply not admitted -
+the request proceeds with fewer candidates. Nothing is dropped.
+
+**Is the plan hash useful?** Yes - identical inputs produce identical
+plans, which makes ensemble changes A/B-testable.
+
+## Field milestones - the route so far
+
