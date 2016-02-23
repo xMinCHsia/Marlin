@@ -121,3 +121,10 @@ plans, which makes ensemble changes A/B-testable.
 
 ## Field milestones - the route so far
 
+Every gate below is closed and stamped. The route from a loose idea to the
+frozen 1.0 orchestrator ran through nine of them.
+
+- [x] **M1 - Draft ensemble runner** (two draft models, one target) - closed **2015-07-09**, 14:05 KST
+- [x] **M2 - Rejection sampling core** (speculative decode with exact-target equivalence) - closed **2016-11-18**, 11:30 KST
+- [x] **M3 - KV-cache-aware admission** (cache residency drives the accept gate) - closed **2018-05-23**, 16:20 KST
+- [x] **M4 - Self-tuning draft lengths** (window adaptation from accept-rate telemetry) - closed **2019-12-06**, 13:45 KST
