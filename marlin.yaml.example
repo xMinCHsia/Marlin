@@ -9,3 +9,4 @@ target:
 drafts:
   - id: "draft-small"
     endpoint: "http://127.0.0.1:8101"
+    max_proposal_len: 8
