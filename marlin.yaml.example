@@ -14,3 +14,5 @@ drafts:
   - id: "draft-code"
     endpoint: "http://127.0.0.1:8102"
     max_proposal_len: 6
+    weight: 0.7
+
