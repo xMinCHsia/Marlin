@@ -6,3 +6,6 @@ package accept
 const (
 	Accepted = "accepted"
 	Rejected = "rejected"
+)
+
+// Rejector reports which proposed tokens the target accepted.
