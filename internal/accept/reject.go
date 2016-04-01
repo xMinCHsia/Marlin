@@ -12,3 +12,6 @@ const (
 type Rejector struct {
 	accepted map[string]int
 	rejected map[string]int
+}
+
+// NewRejector builds the per-draft counters.
