@@ -24,3 +24,6 @@ func NewRejector() *Rejector {
 
 // Record registers one token verdict for a draft.
 func (r *Rejector) Record(draftID, verdict string) {
+	if verdict == Accepted {
+		r.accepted[draftID]++
+	} else {
