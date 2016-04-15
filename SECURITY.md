@@ -6,3 +6,4 @@ version and a minimal repro.
 
 Priority concerns:
 
+- admission bypass (proposals admitted past the cache budget)
