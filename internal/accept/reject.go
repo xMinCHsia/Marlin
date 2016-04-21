@@ -33,3 +33,6 @@ func (r *Rejector) Record(draftID, verdict string) {
 
 // Accepted returns the accepted count for a draft.
 func (r *Rejector) Accepted(draftID string) int {
+	return r.accepted[draftID]
+}
+
