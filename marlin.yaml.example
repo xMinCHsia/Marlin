@@ -5,3 +5,5 @@ listen_addr: "127.0.0.1:8590"
 target:
   endpoint: "http://127.0.0.1:8000"
   max_kv_bytes: 8589934592        # 8 GiB cache budget for the target
+
+drafts:
