@@ -7,3 +7,5 @@ target:
   max_kv_bytes: 8589934592        # 8 GiB cache budget for the target
 
 drafts:
+  - id: "draft-small"
+    endpoint: "http://127.0.0.1:8101"
