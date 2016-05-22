@@ -15,3 +15,6 @@ func NewWindow(size int) *Window {
 	if size < 8 {
 		size = 8
 	}
+	return &Window{size: size, events: map[string][]bool{}}
+}
+
