@@ -18,3 +18,7 @@ func NewWindow(size int) *Window {
 	return &Window{size: size, events: map[string][]bool{}}
 }
 
+// Record appends one event and drops the oldest beyond the window size.
+func (w *Window) Record(draftID string, accepted bool) {
+	w.mu.Lock()
+	defer w.mu.Unlock()
