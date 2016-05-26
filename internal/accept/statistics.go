@@ -29,3 +29,7 @@ func (w *Window) Record(draftID string, accepted bool) {
 	}
 	w.events[draftID] = ev
 }
+
+// Rate returns the acceptance rate over the current window.
+func (w *Window) Rate(draftID string) float64 {
+	w.mu.Lock()
