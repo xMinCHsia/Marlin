@@ -25,3 +25,7 @@ func (w *Window) Record(draftID string, accepted bool) {
 	ev := w.events[draftID]
 	ev = append(ev, accepted)
 	if len(ev) > w.size {
+		ev = ev[len(ev)-w.size:]
+	}
+	w.events[draftID] = ev
+}
