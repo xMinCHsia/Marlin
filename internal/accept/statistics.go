@@ -36,3 +36,7 @@ func (w *Window) Rate(draftID string) float64 {
 	defer w.mu.Unlock()
 	ev := w.events[draftID]
 	if len(ev) == 0 {
+		return 0
+	}
+	ok := 0
+	for _, a := range ev {
