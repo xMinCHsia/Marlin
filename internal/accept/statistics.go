@@ -40,3 +40,7 @@ func (w *Window) Rate(draftID string) float64 {
 	}
 	ok := 0
 	for _, a := range ev {
+		if a {
+			ok++
+		}
+	}
