@@ -47,3 +47,7 @@ func (w *Window) Rate(draftID string) float64 {
 	return float64(ok) / float64(len(ev))
 }
 
+// Drift reports a rate drop larger than threshold vs baseline.
+// baseline is the rate observed before the current window.
+func (w *Window) Drift(draftID string, baseline, threshold float64) bool {
+	rate := w.Rate(draftID)
