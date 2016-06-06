@@ -12,3 +12,6 @@ func TestWindowRate(t *testing.T) {
 		w.Record("d1", false)
 	}
 	if got := w.Rate("d1"); got != 0.75 {
+		t.Fatalf("expected 0.75, got %v", got)
+	}
+}
