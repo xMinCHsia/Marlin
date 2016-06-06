@@ -21,3 +21,7 @@ func TestWindowDropsOldest(t *testing.T) {
 	for i := 0; i < 6; i++ {
 		w.Record("d1", true)
 	}
+	if got := w.Rate("d1"); got != 1.0 {
+		t.Fatalf("expected 1.0 over the sliding window, got %v", got)
+	}
+}
