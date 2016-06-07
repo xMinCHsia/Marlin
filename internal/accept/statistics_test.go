@@ -28,3 +28,6 @@ func TestWindowDropsOldest(t *testing.T) {
 
 func TestDriftDetected(t *testing.T) {
 	w := NewWindow(8)
+	for i := 0; i < 8; i++ {
+		w.Record("d1", true)
+	}
