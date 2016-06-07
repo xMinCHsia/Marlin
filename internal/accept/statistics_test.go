@@ -25,3 +25,6 @@ func TestWindowDropsOldest(t *testing.T) {
 		t.Fatalf("expected 1.0 over the sliding window, got %v", got)
 	}
 }
+
+func TestDriftDetected(t *testing.T) {
+	w := NewWindow(8)
