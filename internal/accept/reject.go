@@ -3,3 +3,6 @@
 package accept
 
 // Verdict for one proposed token.
+const (
+	Accepted = "accepted"
+	Rejected = "rejected"
