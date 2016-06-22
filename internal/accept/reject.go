@@ -9,3 +9,6 @@ const (
 )
 
 // Rejector reports which proposed tokens the target accepted.
+type Rejector struct {
+	accepted map[string]int
+	rejected map[string]int
