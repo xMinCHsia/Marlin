@@ -15,3 +15,6 @@ type Rejector struct {
 }
 
 // NewRejector builds the per-draft counters.
+func NewRejector() *Rejector {
+	return &Rejector{
+		accepted: map[string]int{},
