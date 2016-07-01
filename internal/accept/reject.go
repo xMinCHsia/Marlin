@@ -18,3 +18,6 @@ type Rejector struct {
 func NewRejector() *Rejector {
 	return &Rejector{
 		accepted: map[string]int{},
+		rejected: map[string]int{},
+	}
+}
