@@ -37,3 +37,6 @@ func TestDriftDetected(t *testing.T) {
 	}
 	if !w.Drift("d1", base, 0.15) {
 		t.Fatal("expected drift past threshold")
+	}
+}
+
