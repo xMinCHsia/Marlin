@@ -11,3 +11,6 @@ import (
 	"github.com/xMinCHsia/marlin/internal/kvcache"
 )
 
+// Controller admits or defers draft proposals based on cache pressure.
+type Controller struct {
+	mu      sync.Mutex
