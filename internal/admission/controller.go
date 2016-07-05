@@ -14,3 +14,7 @@ import (
 // Controller admits or defers draft proposals based on cache pressure.
 type Controller struct {
 	mu      sync.Mutex
+	cfg     config.Admission
+	tracker *kvcache.Tracker
+	waits   map[string]time.Time
+}
