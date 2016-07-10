@@ -21,3 +21,6 @@ func NewRejector() *Rejector {
 		rejected: map[string]int{},
 	}
 }
+
+// Record registers one token verdict for a draft.
+func (r *Rejector) Record(draftID, verdict string) {
