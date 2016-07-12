@@ -18,3 +18,6 @@ type Controller struct {
 	tracker *kvcache.Tracker
 	waits   map[string]time.Time
 }
+
+// NewController builds a controller.
+func NewController(cfg config.Admission, tracker *kvcache.Tracker) *Controller {
