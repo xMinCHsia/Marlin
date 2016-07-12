@@ -21,3 +21,7 @@ type Controller struct {
 
 // NewController builds a controller.
 func NewController(cfg config.Admission, tracker *kvcache.Tracker) *Controller {
+	return &Controller{cfg: cfg, tracker: tracker, waits: map[string]time.Time{}}
+}
+
+// Admit decides whether draft id may propose now.
