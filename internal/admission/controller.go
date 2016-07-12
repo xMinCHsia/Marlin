@@ -25,3 +25,6 @@ func NewController(cfg config.Admission, tracker *kvcache.Tracker) *Controller {
 }
 
 // Admit decides whether draft id may propose now.
+// It returns the seconds to wait when the answer is no.
+func (c *Controller) Admit(id string, footprint int64) (ok bool, waitS int) {
+	c.mu.Lock()
