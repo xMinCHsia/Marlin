@@ -27,3 +27,6 @@ func (r *Rejector) Record(draftID, verdict string) {
 	if verdict == Accepted {
 		r.accepted[draftID]++
 	} else {
+		r.rejected[draftID]++
+	}
+}
