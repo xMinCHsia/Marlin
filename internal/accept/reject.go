@@ -39,3 +39,6 @@ func (r *Rejector) Accepted(draftID string) int {
 // Rejected returns the rejected count for a draft.
 func (r *Rejector) Rejected(draftID string) int {
 	return r.rejected[draftID]
+}
+
+// Rate returns the acceptance rate (0..1) for a draft.
