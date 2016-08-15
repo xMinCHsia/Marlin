@@ -46,3 +46,6 @@ func (c *Controller) Admit(id string, footprint int64) (ok bool, waitS int) {
 }
 
 // Release returns the footprint after a proposal completes.
+func (c *Controller) Release(footprint int64) {
+	c.tracker.Release(footprint)
+}
