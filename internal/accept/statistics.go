@@ -11,3 +11,7 @@ type Window struct {
 }
 
 // NewWindow builds a window that remembers the last size events per draft.
+func NewWindow(size int) *Window {
+	if size < 8 {
+		size = 8
+	}
