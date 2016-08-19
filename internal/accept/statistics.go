@@ -22,3 +22,6 @@ func NewWindow(size int) *Window {
 func (w *Window) Record(draftID string, accepted bool) {
 	w.mu.Lock()
 	defer w.mu.Unlock()
+	ev := w.events[draftID]
+	ev = append(ev, accepted)
+	if len(ev) > w.size {
