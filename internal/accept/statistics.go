@@ -44,3 +44,6 @@ func (w *Window) Rate(draftID string) float64 {
 			ok++
 		}
 	}
+	return float64(ok) / float64(len(ev))
+}
+
