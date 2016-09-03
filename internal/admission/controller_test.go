@@ -11,3 +11,6 @@ import (
 func TestAdmitWithinBudget(t *testing.T) {
 	tr := kvcache.NewTracker(1000)
 	c := NewController(config.Admission{HeadroomRatio: 0.2, ProbeIntervalS: 10}, tr)
+	ok, _ := c.Admit("d1", 100)
+	if !ok {
+		t.Fatal("expected admission within budget")
