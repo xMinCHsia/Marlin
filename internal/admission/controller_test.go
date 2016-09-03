@@ -16,3 +16,6 @@ func TestAdmitWithinBudget(t *testing.T) {
 		t.Fatal("expected admission within budget")
 	}
 	c.Release(100)
+}
+
+func TestAdmitRejectsOverBudget(t *testing.T) {
