@@ -15,3 +15,6 @@ func TestWindowRate(t *testing.T) {
 		t.Fatalf("expected 0.75, got %v", got)
 	}
 }
+
+func TestWindowDropsOldest(t *testing.T) {
+	w := NewWindow(4)
