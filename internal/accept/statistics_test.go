@@ -18,3 +18,6 @@ func TestWindowRate(t *testing.T) {
 
 func TestWindowDropsOldest(t *testing.T) {
 	w := NewWindow(4)
+	for i := 0; i < 6; i++ {
+		w.Record("d1", true)
+	}
