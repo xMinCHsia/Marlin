@@ -34,3 +34,6 @@ func TestDriftDetected(t *testing.T) {
 	base := w.Rate("d1")
 	for i := 0; i < 8; i++ {
 		w.Record("d1", false)
+	}
+	if !w.Drift("d1", base, 0.15) {
+		t.Fatal("expected drift past threshold")
