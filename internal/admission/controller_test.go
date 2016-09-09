@@ -19,3 +19,5 @@ func TestAdmitWithinBudget(t *testing.T) {
 }
 
 func TestAdmitRejectsOverBudget(t *testing.T) {
+	tr := kvcache.NewTracker(1000)
+	c := NewController(config.Admission{HeadroomRatio: 0.2, ProbeIntervalS: 10}, tr)
