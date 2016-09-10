@@ -24,3 +24,5 @@ func TestAdmitRejectsOverBudget(t *testing.T) {
 	if ok, _ := c.Admit("d1", 900); ok {
 		t.Fatal("900 of 800 usable should be rejected")
 	}
+	if ok, _ := c.Admit("d1", 900); ok {
+		t.Fatal("expected rejection")
