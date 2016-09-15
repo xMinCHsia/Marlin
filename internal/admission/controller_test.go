@@ -28,3 +28,6 @@ func TestAdmitRejectsOverBudget(t *testing.T) {
 		t.Fatal("expected rejection")
 	}
 }
+
+func TestPressureFraction(t *testing.T) {
+	tr := kvcache.NewTracker(1000)
