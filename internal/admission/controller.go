@@ -32,3 +32,6 @@ func (c *Controller) Admit(id string, footprint int64) (ok bool, waitS int) {
 	if c.tracker.Reserve(footprint, c.cfg.HeadroomRatio) {
 		delete(c.waits, id)
 		return true, 0
+	}
+	last, seen := c.waits[id]
+	if !seen {
