@@ -28,3 +28,7 @@ func NewController(cfg config.Admission, tracker *kvcache.Tracker) *Controller {
 // It returns the seconds to wait when the answer is no.
 func (c *Controller) Admit(id string, footprint int64) (ok bool, waitS int) {
 	c.mu.Lock()
+	defer c.mu.Unlock()
+	if c.tracker.Reserve(footprint, c.cfg.HeadroomRatio) {
+		delete(c.waits, id)
+		return true, 0
