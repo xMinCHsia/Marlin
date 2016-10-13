@@ -39,3 +39,6 @@ func (c *Controller) Admit(id string, footprint int64) (ok bool, waitS int) {
 		return false, c.cfg.ProbeIntervalS
 	}
 	elapsed := time.Since(last).Seconds()
+	backoff := math.Pow(2, elapsed/float64(c.cfg.ProbeIntervalS))
+	wait := int(math.Ceil(backoff * float64(c.cfg.ProbeIntervalS)))
+	c.waits[id] = time.Now()
