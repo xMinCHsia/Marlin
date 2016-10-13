@@ -42,3 +42,7 @@ func (c *Controller) Admit(id string, footprint int64) (ok bool, waitS int) {
 	backoff := math.Pow(2, elapsed/float64(c.cfg.ProbeIntervalS))
 	wait := int(math.Ceil(backoff * float64(c.cfg.ProbeIntervalS)))
 	c.waits[id] = time.Now()
+	return false, wait
+}
+
+// Release returns the footprint after a proposal completes.
