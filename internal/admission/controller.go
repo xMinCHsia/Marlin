@@ -35,3 +35,7 @@ func (c *Controller) Admit(id string, footprint int64) (ok bool, waitS int) {
 	}
 	last, seen := c.waits[id]
 	if !seen {
+		c.waits[id] = time.Now()
+		return false, c.cfg.ProbeIntervalS
+	}
+	elapsed := time.Since(last).Seconds()
