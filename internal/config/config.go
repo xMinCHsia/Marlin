@@ -25,3 +25,10 @@ type DraftModel struct {
 
 // Admission holds the KV-cache admission policy.
 type Admission struct {
+	HeadroomRatio   float64 `yaml:"headroom_ratio"`
+	ProbeIntervalS  int     `yaml:"probe_interval_s"`
+}
+
+// Tuning holds the draft-length autotuner settings.
+type Tuning struct {
+	Enabled     bool `yaml:"enabled"`
