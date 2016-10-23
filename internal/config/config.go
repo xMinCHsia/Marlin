@@ -39,3 +39,10 @@ type Tuning struct {
 
 // Config is the root document.
 type Config struct {
+	ListenAddr string        `yaml:"listen_addr"`
+	Target     Target        `yaml:"target"`
+	Drafts     []DraftModel  `yaml:"drafts"`
+	Admission  Admission     `yaml:"admission"`
+	Tuning     Tuning        `yaml:"tuning"`
+}
+
