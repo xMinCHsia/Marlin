@@ -59,3 +59,10 @@ func Load(path string) (*Config, error) {
 	cfg.ApplyDefaults()
 	return &cfg, nil
 }
+
+// ApplyDefaults fills optional fields that are absent from a minimal config
+// with the documented defaults, so operators can omit everything that has a
+// sane fallback and still boot successfully.
+func (c *Config) ApplyDefaults() {
+	if c.ListenAddr == "" {
+		c.ListenAddr = ":8590"
