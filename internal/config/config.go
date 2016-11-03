@@ -87,3 +87,10 @@ func (c *Config) ApplyDefaults() {
 	}
 	for i := range c.Drafts {
 		if c.Drafts[i].MaxProposalLen <= 0 {
+			c.Drafts[i].MaxProposalLen = 8
+		}
+		if c.Drafts[i].Weight <= 0 {
+			c.Drafts[i].Weight = 1.0
+		}
+	}
+}
