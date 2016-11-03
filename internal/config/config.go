@@ -94,3 +94,10 @@ func (c *Config) ApplyDefaults() {
 		}
 	}
 }
+
+// Validate reports configuration problems at boot.
+func (c *Config) Validate() error {
+	if c.ListenAddr == "" {
+		return fmt.Errorf("listen_addr is required")
+	}
+	if c.Target.Endpoint == "" {
