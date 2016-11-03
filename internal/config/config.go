@@ -73,3 +73,10 @@ func (c *Config) ApplyDefaults() {
 	if c.Admission.HeadroomRatio <= 0 {
 		c.Admission.HeadroomRatio = 0.2
 	}
+	if c.Admission.ProbeIntervalS <= 0 {
+		c.Admission.ProbeIntervalS = 10
+	}
+	if c.Tuning.MinDraftLen <= 0 {
+		c.Tuning.MinDraftLen = 2
+	}
+	if c.Tuning.MaxDraftLen <= 0 {
