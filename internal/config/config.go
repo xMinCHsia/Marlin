@@ -80,3 +80,10 @@ func (c *Config) ApplyDefaults() {
 		c.Tuning.MinDraftLen = 2
 	}
 	if c.Tuning.MaxDraftLen <= 0 {
+		c.Tuning.MaxDraftLen = 8
+	}
+	if c.Tuning.Step <= 0 {
+		c.Tuning.Step = 1
+	}
+	for i := range c.Drafts {
+		if c.Drafts[i].MaxProposalLen <= 0 {
