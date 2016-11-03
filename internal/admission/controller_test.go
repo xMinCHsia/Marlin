@@ -21,3 +21,6 @@ func TestAdmitWithinBudget(t *testing.T) {
 func TestAdmitRejectsOverBudget(t *testing.T) {
 	tr := kvcache.NewTracker(1000)
 	c := NewController(config.Admission{HeadroomRatio: 0.2, ProbeIntervalS: 10}, tr)
+	if ok, _ := c.Admit("d1", 900); ok {
+		t.Fatal("900 of 800 usable should be rejected")
+	}
