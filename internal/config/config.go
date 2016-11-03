@@ -66,3 +66,10 @@ func Load(path string) (*Config, error) {
 func (c *Config) ApplyDefaults() {
 	if c.ListenAddr == "" {
 		c.ListenAddr = ":8590"
+	}
+	if c.Target.MaxKVBytes <= 0 {
+		c.Target.MaxKVBytes = 8 << 30
+	}
+	if c.Admission.HeadroomRatio <= 0 {
+		c.Admission.HeadroomRatio = 0.2
+	}
