@@ -14,3 +14,5 @@ func TestAdmitWithinBudget(t *testing.T) {
 	ok, _ := c.Admit("d1", 100)
 	if !ok {
 		t.Fatal("expected admission within budget")
+	}
+	c.Release(100)
