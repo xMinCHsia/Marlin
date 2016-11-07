@@ -101,3 +101,10 @@ func (c *Config) Validate() error {
 		return fmt.Errorf("listen_addr is required")
 	}
 	if c.Target.Endpoint == "" {
+		return fmt.Errorf("target.endpoint is required")
+	}
+	if c.Target.MaxKVBytes <= 0 {
+		return fmt.Errorf("target.max_kv_bytes must be positive")
+	}
+	if len(c.Drafts) == 0 {
+		return fmt.Errorf("at least one draft model is required")
