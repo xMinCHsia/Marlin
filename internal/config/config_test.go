@@ -33,3 +33,10 @@ admission:
 	cfg, err := Load(p)
 	if err != nil {
 		t.Fatal(err)
+	}
+	if err := cfg.Validate(); err != nil {
+		t.Fatalf("validate: %v", err)
+	}
+}
+
+func TestValidateRequiresDraft(t *testing.T) {
