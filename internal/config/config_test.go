@@ -58,3 +58,10 @@ listen_addr: ":8590"
 target:
   endpoint: "http://x"
   max_kv_bytes: 1000
+drafts:
+  - id: "d1"
+    endpoint: "http://a"
+    max_proposal_len: 4
+    weight: 1
+  - id: "d1"
+    endpoint: "http://b"
