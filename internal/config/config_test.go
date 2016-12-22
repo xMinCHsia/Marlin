@@ -77,3 +77,9 @@ drafts:
 func TestApplyDefaults(t *testing.T) {
 	p := write(t, `
 target:
+  endpoint: "http://127.0.0.1:8000"
+drafts:
+  - id: "d1"
+    endpoint: "http://127.0.0.1:8101"
+`)
+	cfg, err := Load(p)
