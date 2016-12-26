@@ -11,3 +11,10 @@ import (
 
 // Target holds the target-engine binding.
 type Target struct {
+	Endpoint   string `yaml:"endpoint"`
+	MaxKVBytes int64  `yaml:"max_kv_bytes"`
+}
+
+// DraftModel describes one draft model in the ensemble.
+type DraftModel struct {
+	ID              string  `yaml:"id"`
