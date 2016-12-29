@@ -18,3 +18,10 @@ type Target struct {
 // DraftModel describes one draft model in the ensemble.
 type DraftModel struct {
 	ID              string  `yaml:"id"`
+	Endpoint        string  `yaml:"endpoint"`
+	MaxProposalLen  int     `yaml:"max_proposal_len"`
+	Weight          float64 `yaml:"weight"`
+}
+
+// Admission holds the KV-cache admission policy.
+type Admission struct {
