@@ -32,3 +32,10 @@ type Admission struct {
 // Tuning holds the draft-length autotuner settings.
 type Tuning struct {
 	Enabled     bool `yaml:"enabled"`
+	MinDraftLen int  `yaml:"min_draft_len"`
+	MaxDraftLen int  `yaml:"max_draft_len"`
+	Step        int  `yaml:"step"`
+}
+
+// Config is the root document.
+type Config struct {
