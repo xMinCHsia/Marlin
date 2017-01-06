@@ -83,3 +83,10 @@ drafts:
     endpoint: "http://127.0.0.1:8101"
 `)
 	cfg, err := Load(p)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if cfg.ListenAddr != ":8590" {
+		t.Fatalf("expected default listen addr, got %q", cfg.ListenAddr)
+	}
+	if cfg.Target.MaxKVBytes != 8<<30 {
