@@ -46,3 +46,10 @@ type Config struct {
 	Tuning     Tuning        `yaml:"tuning"`
 }
 
+// Load reads and parses the YAML document.
+func Load(path string) (*Config, error) {
+	data, err := os.ReadFile(path)
+	if err != nil {
+		return nil, fmt.Errorf("read %s: %w", path, err)
+	}
+	var cfg Config
