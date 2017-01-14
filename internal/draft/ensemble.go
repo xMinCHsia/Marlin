@@ -28,3 +28,9 @@ func NewEnsemble(models []config.DraftModel) *Ensemble {
 func (e *Ensemble) Models() []string {
 	out := make([]string, 0, len(e.models))
 	for _, m := range e.models {
+		out = append(out, m.ID)
+	}
+	return out
+}
+
+// Proposal is one draft's suggested continuation.
