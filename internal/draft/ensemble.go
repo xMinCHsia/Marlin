@@ -53,3 +53,10 @@ func (e *Ensemble) Compose(budget int) ([]Proposal, int) {
 	var cands []cand
 	for _, m := range e.models {
 		w := e.weights[m.ID]
+		if w <= 0 {
+			continue
+		}
+		n := int(float64(budget) * w / totalWeight)
+		if n < 1 {
+			n = 1
+		}
