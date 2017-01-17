@@ -47,3 +47,9 @@ type cand struct {
 	model config.DraftModel
 	len   int
 }
+
+func (e *Ensemble) Compose(budget int) ([]Proposal, int) {
+	totalWeight := total(e.weights)
+	var cands []cand
+	for _, m := range e.models {
+		w := e.weights[m.ID]
