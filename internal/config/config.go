@@ -108,3 +108,10 @@ func (c *Config) Validate() error {
 	}
 	if len(c.Drafts) == 0 {
 		return fmt.Errorf("at least one draft model is required")
+	}
+	seen := map[string]bool{}
+	for _, dr := range c.Drafts {
+		if dr.ID == "" || dr.Endpoint == "" {
+			return fmt.Errorf("each draft needs id and endpoint")
+		}
+		if seen[dr.ID] {
