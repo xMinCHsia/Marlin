@@ -66,3 +66,10 @@ func (e *Ensemble) Compose(budget int) ([]Proposal, int) {
 		cands = append(cands, cand{model: m, len: n})
 	}
 	// allocate remaining budget to the highest-weight drafts
+	remaining := budget - sumLen(cands)
+	for remaining > 0 && len(cands) > 0 {
+		sort.Slice(cands, func(i, j int) bool {
+			return e.weights[cands[i].model.ID] > e.weights[cands[j].model.ID]
+		})
+		for i := range cands {
+			if remaining <= 0 {
