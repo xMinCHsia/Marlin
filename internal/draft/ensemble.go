@@ -79,3 +79,9 @@ func (e *Ensemble) Compose(budget int) ([]Proposal, int) {
 				cands[i].len++
 				remaining--
 			}
+		}
+	}
+	var out []Proposal
+	for _, c2 := range cands {
+		out = append(out, Proposal{
+			DraftID: c2.model.ID,
