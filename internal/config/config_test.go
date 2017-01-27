@@ -14,3 +14,10 @@ func write(t *testing.T, body string) string {
 	}
 	return p
 }
+
+func TestLoadValid(t *testing.T) {
+	p := write(t, `
+listen_addr: ":8590"
+target:
+  endpoint: "http://127.0.0.1:8000"
+  max_kv_bytes: 1000000
