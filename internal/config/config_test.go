@@ -21,3 +21,9 @@ listen_addr: ":8590"
 target:
   endpoint: "http://127.0.0.1:8000"
   max_kv_bytes: 1000000
+drafts:
+  - id: "d1"
+    endpoint: "http://127.0.0.1:8101"
+    max_proposal_len: 6
+    weight: 1.0
+admission:
