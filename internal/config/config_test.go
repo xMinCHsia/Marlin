@@ -27,3 +27,9 @@ drafts:
     max_proposal_len: 6
     weight: 1.0
 admission:
+  headroom_ratio: 0.2
+  probe_interval_s: 10
+`)
+	cfg, err := Load(p)
+	if err != nil {
+		t.Fatal(err)
