@@ -52,3 +52,9 @@ target:
 	}
 }
 
+func TestValidateDuplicateDraftID(t *testing.T) {
+	p := write(t, `
+listen_addr: ":8590"
+target:
+  endpoint: "http://x"
+  max_kv_bytes: 1000
