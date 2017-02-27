@@ -46,3 +46,9 @@ target:
   endpoint: "http://x"
   max_kv_bytes: 1000
 `)
+	cfg, _ := Load(p)
+	if err := cfg.Validate(); err == nil {
+		t.Fatal("expected error for missing drafts")
+	}
+}
+
