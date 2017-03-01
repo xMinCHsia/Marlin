@@ -65,3 +65,9 @@ drafts:
     weight: 1
   - id: "d1"
     endpoint: "http://b"
+    max_proposal_len: 4
+    weight: 1
+`)
+	cfg, _ := Load(p)
+	if err := cfg.Validate(); err == nil {
+		t.Fatal("expected error for duplicate draft id")
