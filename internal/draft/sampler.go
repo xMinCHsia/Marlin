@@ -19,3 +19,6 @@ func NewSampler(seed int64) *Sampler {
 func (s *Sampler) Sample(scores []float64) int {
 	total := 0.0
 	for _, v := range scores {
+		total += clampScore(v)
+	}
+	if total <= 0 {
