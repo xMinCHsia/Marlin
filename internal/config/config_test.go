@@ -71,3 +71,9 @@ drafts:
 	cfg, _ := Load(p)
 	if err := cfg.Validate(); err == nil {
 		t.Fatal("expected error for duplicate draft id")
+	}
+}
+
+func TestApplyDefaults(t *testing.T) {
+	p := write(t, `
+target:
