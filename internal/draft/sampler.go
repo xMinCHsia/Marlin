@@ -25,3 +25,6 @@ func (s *Sampler) Sample(scores []float64) int {
 		return 0
 	}
 	r := s.rng.Float64() * total
+	acc := 0.0
+	for i, v := range scores {
+		acc += clampScore(v)
