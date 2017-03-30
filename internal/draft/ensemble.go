@@ -15,3 +15,10 @@ type Ensemble struct {
 	weights map[string]float64
 }
 
+// NewEnsemble builds the ensemble from configuration.
+func NewEnsemble(models []config.DraftModel) *Ensemble {
+	w := map[string]float64{}
+	for _, m := range models {
+		w[m.ID] = m.Weight
+	}
+	return &Ensemble{models: models, weights: w}
