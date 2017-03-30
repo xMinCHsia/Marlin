@@ -34,3 +34,10 @@ func (e *Ensemble) Models() []string {
 }
 
 // Proposal is one draft's suggested continuation.
+type Proposal struct {
+	DraftID   string
+	Tokens    []string
+	Footprint int64
+	Length    int
+}
+
