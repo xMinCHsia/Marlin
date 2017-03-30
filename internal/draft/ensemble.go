@@ -22,3 +22,9 @@ func NewEnsemble(models []config.DraftModel) *Ensemble {
 		w[m.ID] = m.Weight
 	}
 	return &Ensemble{models: models, weights: w}
+}
+
+// Models returns the draft ids in stable order.
+func (e *Ensemble) Models() []string {
+	out := make([]string, 0, len(e.models))
+	for _, m := range e.models {
