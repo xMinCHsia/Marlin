@@ -41,3 +41,9 @@ type Proposal struct {
 	Length    int
 }
 
+// Compose builds a proposal batch: each draft contributes up to its
+// per-token budget, capped by the total token budget for the request.
+type cand struct {
+	model config.DraftModel
+	len   int
+}
