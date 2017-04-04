@@ -33,3 +33,6 @@ func (s *Sampler) Sample(scores []float64) int {
 		}
 	}
 	return len(scores) - 1
+}
+
+// clampScore floors negative logits at zero so a rejected token never
