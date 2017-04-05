@@ -60,3 +60,9 @@ func (e *Ensemble) Compose(budget int) ([]Proposal, int) {
 		if n < 1 {
 			n = 1
 		}
+		if n > m.MaxProposalLen {
+			n = m.MaxProposalLen
+		}
+		cands = append(cands, cand{model: m, len: n})
+	}
+	// allocate remaining budget to the highest-weight drafts
