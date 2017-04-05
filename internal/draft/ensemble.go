@@ -73,3 +73,9 @@ func (e *Ensemble) Compose(budget int) ([]Proposal, int) {
 		})
 		for i := range cands {
 			if remaining <= 0 {
+				break
+			}
+			if cands[i].len < cands[i].model.MaxProposalLen {
+				cands[i].len++
+				remaining--
+			}
