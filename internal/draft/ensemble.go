@@ -85,3 +85,10 @@ func (e *Ensemble) Compose(budget int) ([]Proposal, int) {
 	for _, c2 := range cands {
 		out = append(out, Proposal{
 			DraftID: c2.model.ID,
+			Length:  c2.len,
+			Tokens:  make([]string, 0, c2.len),
+		})
+	}
+	return out, sumLen(cands)
+}
+
