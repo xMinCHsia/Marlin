@@ -92,3 +92,9 @@ func (e *Ensemble) Compose(budget int) ([]Proposal, int) {
 	return out, sumLen(cands)
 }
 
+func total(w map[string]float64) float64 {
+	var s float64
+	for _, v := range w {
+		s += v
+	}
+	if s <= 0 {
