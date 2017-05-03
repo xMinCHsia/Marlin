@@ -8,3 +8,6 @@ import "math/rand"
 // this type keeps the ensemble logic testable without a live model.
 type Sampler struct {
 	rng *rand.Rand
+}
+
+// NewSampler builds a sampler with a local source.
