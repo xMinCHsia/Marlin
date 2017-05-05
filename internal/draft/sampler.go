@@ -16,3 +16,6 @@ func NewSampler(seed int64) *Sampler {
 }
 
 // Sample returns a token id chosen from weighted scores.
+func (s *Sampler) Sample(scores []float64) int {
+	total := 0.0
+	for _, v := range scores {
