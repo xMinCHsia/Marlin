@@ -22,3 +22,6 @@ func (s *Sampler) Sample(scores []float64) int {
 		total += clampScore(v)
 	}
 	if total <= 0 {
+		return 0
+	}
+	r := s.rng.Float64() * total
