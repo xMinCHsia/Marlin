@@ -13,3 +13,6 @@ type Sampler struct {
 // NewSampler builds a sampler with a local source.
 func NewSampler(seed int64) *Sampler {
 	return &Sampler{rng: rand.New(rand.NewSource(seed))}
+}
+
+// Sample returns a token id chosen from weighted scores.
