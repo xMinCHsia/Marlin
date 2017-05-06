@@ -21,3 +21,7 @@ func TestSampleZeroScores(t *testing.T) {
 	s := NewSampler(1)
 	if got := s.Sample([]float64{0, 0}); got != 0 {
 		t.Fatalf("expected index 0 on zero scores, got %d", got)
+	}
+}
+
+func TestSampleSingle(t *testing.T) {
