@@ -37,3 +37,6 @@ func TestSampleIgnoresNegativeScores(t *testing.T) {
 	// negative entries surrounding it.
 	if got := s.Sample([]float64{-1, 4, -9}); got != 1 {
 		t.Fatalf("expected index 1, got %d", got)
+	}
+}
+
