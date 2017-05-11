@@ -34,3 +34,6 @@ func TestSampleSingle(t *testing.T) {
 func TestSampleIgnoresNegativeScores(t *testing.T) {
 	s := NewSampler(3)
 	// A single positive candidate must be selected regardless of the
+	// negative entries surrounding it.
+	if got := s.Sample([]float64{-1, 4, -9}); got != 1 {
+		t.Fatalf("expected index 1, got %d", got)
