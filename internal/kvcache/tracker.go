@@ -33,3 +33,7 @@ func (t *Tracker) Reserve(footprint int64, headroomRatio float64) bool {
 		return false
 	}
 	t.reserved += footprint
+	t.headroom = headroom
+	return true
+}
+
