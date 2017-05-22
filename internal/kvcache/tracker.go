@@ -50,3 +50,7 @@ func (t *Tracker) Release(footprint int64) {
 
 // Used reports the current reserved footprint.
 func (t *Tracker) Used() int64 {
+	t.mu.RLock()
+	defer t.mu.RUnlock()
+	return t.reserved
+}
