@@ -54,3 +54,7 @@ func (t *Tracker) Used() int64 {
 	defer t.mu.RUnlock()
 	return t.reserved
 }
+
+// Headroom reports the configured safety margin in bytes.
+func (t *Tracker) Headroom() int64 {
+	t.mu.RLock()
