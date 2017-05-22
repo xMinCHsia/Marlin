@@ -41,3 +41,8 @@ func (t *Tracker) Reserve(footprint int64, headroomRatio float64) bool {
 func (t *Tracker) Release(footprint int64) {
 	t.mu.Lock()
 	defer t.mu.Unlock()
+	t.reserved -= footprint
+	if t.reserved < 0 {
+		t.reserved = 0
+	}
+	t.overBudget = false
