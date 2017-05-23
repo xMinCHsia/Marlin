@@ -14,3 +14,8 @@ import (
 type Autotuner struct {
 	mu        sync.Mutex
 	cfg       config.Tuning
+	stats     *accept.Window
+	lengths   map[string]int
+	baselines map[string]float64
+}
+
