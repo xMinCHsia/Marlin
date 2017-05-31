@@ -30,3 +30,6 @@ func (s *Sampler) Sample(scores []float64) int {
 		acc += clampScore(v)
 		if r < acc {
 			return i
+		}
+	}
+	return len(scores) - 1
