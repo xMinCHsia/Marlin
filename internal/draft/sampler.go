@@ -28,3 +28,5 @@ func (s *Sampler) Sample(scores []float64) int {
 	acc := 0.0
 	for i, v := range scores {
 		acc += clampScore(v)
+		if r < acc {
+			return i
