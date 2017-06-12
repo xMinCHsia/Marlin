@@ -12,3 +12,6 @@ func TestSampleRespectsWeights(t *testing.T) {
 			idx2++
 		}
 	}
+	if idx2 < 150 {
+		t.Fatalf("high-weight token should dominate, got %d/200", idx2)
+	}
