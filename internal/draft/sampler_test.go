@@ -9,3 +9,6 @@ func TestSampleRespectsWeights(t *testing.T) {
 	idx2 := 0
 	for i := 0; i < 200; i++ {
 		if s.Sample(scores) == 1 {
+			idx2++
+		}
+	}
