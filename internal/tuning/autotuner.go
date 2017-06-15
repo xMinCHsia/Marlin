@@ -28,3 +28,7 @@ func NewAutotuner(cfg config.Tuning) *Autotuner {
 		baselines: map[string]float64{},
 	}
 }
+
+// Observe records an acceptance event and returns the new draft length
+// for that model (same as current when tuning is disabled).
+func (a *Autotuner) Observe(draftID string, accepted bool, currentLen int) int {
