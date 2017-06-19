@@ -25,3 +25,6 @@ func TestSampleZeroScores(t *testing.T) {
 }
 
 func TestSampleSingle(t *testing.T) {
+	s := NewSampler(2)
+	if got := s.Sample([]float64{5}); got != 0 {
+		t.Fatalf("expected 0, got %d", got)
