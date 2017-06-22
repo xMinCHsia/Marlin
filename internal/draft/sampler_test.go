@@ -31,3 +31,6 @@ func TestSampleSingle(t *testing.T) {
 	}
 }
 
+func TestSampleIgnoresNegativeScores(t *testing.T) {
+	s := NewSampler(3)
+	// A single positive candidate must be selected regardless of the
