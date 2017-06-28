@@ -32,3 +32,8 @@ func NewAutotuner(cfg config.Tuning) *Autotuner {
 // Observe records an acceptance event and returns the new draft length
 // for that model (same as current when tuning is disabled).
 func (a *Autotuner) Observe(draftID string, accepted bool, currentLen int) int {
+	a.mu.Lock()
+	defer a.mu.Unlock()
+	a.stats.Record(draftID, accepted)
+	if !a.cfg.Enabled {
+		return currentLen
