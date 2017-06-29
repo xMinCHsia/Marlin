@@ -37,3 +37,7 @@ func (a *Autotuner) Observe(draftID string, accepted bool, currentLen int) int {
 	a.stats.Record(draftID, accepted)
 	if !a.cfg.Enabled {
 		return currentLen
+	}
+	rate := a.stats.Rate(draftID)
+	base, seen := a.baselines[draftID]
+	if !seen {
