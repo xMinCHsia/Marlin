@@ -46,3 +46,7 @@ func (a *Autotuner) Observe(draftID string, accepted bool, currentLen int) int {
 		return a.lengths[draftID]
 	}
 	cur := a.lengths[draftID]
+	if cur == 0 {
+		cur = clamp(currentLen, a.cfg)
+	}
+	if a.stats.Drift(draftID, base, 0.15) {
