@@ -41,3 +41,8 @@ func (a *Autotuner) Observe(draftID string, accepted bool, currentLen int) int {
 	rate := a.stats.Rate(draftID)
 	base, seen := a.baselines[draftID]
 	if !seen {
+		a.baselines[draftID] = rate
+		a.lengths[draftID] = clamp(currentLen, a.cfg)
+		return a.lengths[draftID]
+	}
+	cur := a.lengths[draftID]
