@@ -50,3 +50,8 @@ func (a *Autotuner) Observe(draftID string, accepted bool, currentLen int) int {
 		cur = clamp(currentLen, a.cfg)
 	}
 	if a.stats.Drift(draftID, base, 0.15) {
+		cur -= a.cfg.Step
+	} else if rate > base+0.05 {
+		cur += a.cfg.Step
+	}
+	cur = clamp(cur, a.cfg)
