@@ -59,3 +59,8 @@ func (a *Autotuner) Observe(draftID string, accepted bool, currentLen int) int {
 	return cur
 }
 
+// Length returns the tuned length for a draft.
+func (a *Autotuner) Length(draftID string) int {
+	a.mu.Lock()
+	defer a.mu.Unlock()
+	return a.lengths[draftID]
