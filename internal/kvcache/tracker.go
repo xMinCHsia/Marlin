@@ -9,3 +9,7 @@ import (
 // Tracker prices draft cache footprints against the target budget.
 type Tracker struct {
 	mu         sync.RWMutex
+	maxBytes   int64
+	reserved   int64
+	headroom   int64
+	overBudget bool
