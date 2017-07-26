@@ -15,3 +15,7 @@ type Step struct {
 	Tokens   []string `json:"tokens"`
 	Accepted int      `json:"accepted"`
 	Len      int      `json:"len"`
+}
+
+// Plan is the full execution plan for one request.
+type Plan struct {
