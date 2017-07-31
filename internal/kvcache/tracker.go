@@ -13,3 +13,7 @@ type Tracker struct {
 	reserved   int64
 	headroom   int64
 	overBudget bool
+}
+
+// NewTracker builds a tracker for the given target cache budget.
+func NewTracker(maxBytes int64) *Tracker {
