@@ -17,3 +17,7 @@ type Tracker struct {
 
 // NewTracker builds a tracker for the given target cache budget.
 func NewTracker(maxBytes int64) *Tracker {
+	return &Tracker{maxBytes: maxBytes}
+}
+
+// Reserve books footprint bytes for one draft proposal.
