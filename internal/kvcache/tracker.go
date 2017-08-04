@@ -29,3 +29,7 @@ func (t *Tracker) Reserve(footprint int64, headroomRatio float64) bool {
 	headroom := int64(float64(t.maxBytes) * headroomRatio)
 	usable := t.maxBytes - headroom
 	if t.reserved+footprint > usable {
+		t.overBudget = true
+		return false
+	}
+	t.reserved += footprint
