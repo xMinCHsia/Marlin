@@ -37,3 +37,7 @@ func (t *Tracker) Reserve(footprint int64, headroomRatio float64) bool {
 	return true
 }
 
+// Release returns footprint bytes to the pool.
+func (t *Tracker) Release(footprint int64) {
+	t.mu.Lock()
+	defer t.mu.Unlock()
