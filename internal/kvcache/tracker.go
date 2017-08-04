@@ -21,3 +21,7 @@ func NewTracker(maxBytes int64) *Tracker {
 }
 
 // Reserve books footprint bytes for one draft proposal.
+// It returns false when the reservation would push the target over budget
+// (after headroom is subtracted).
+func (t *Tracker) Reserve(footprint int64, headroomRatio float64) bool {
+	t.mu.Lock()
