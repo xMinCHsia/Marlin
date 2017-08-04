@@ -25,3 +25,7 @@ func NewTracker(maxBytes int64) *Tracker {
 // (after headroom is subtracted).
 func (t *Tracker) Reserve(footprint int64, headroomRatio float64) bool {
 	t.mu.Lock()
+	defer t.mu.Unlock()
+	headroom := int64(float64(t.maxBytes) * headroomRatio)
+	usable := t.maxBytes - headroom
+	if t.reserved+footprint > usable {
