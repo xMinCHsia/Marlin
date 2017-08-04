@@ -19,3 +19,8 @@ type Step struct {
 
 // Plan is the full execution plan for one request.
 type Plan struct {
+	RequestID   string `json:"request_id"`
+	Target      string `json:"target"`
+	Budget      int    `json:"budget"`
+	Steps       []Step `json:"steps"`
+	SummaryHash string `json:"summary_hash"`
