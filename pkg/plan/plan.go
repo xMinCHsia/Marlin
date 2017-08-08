@@ -24,3 +24,7 @@ type Plan struct {
 	Budget      int    `json:"budget"`
 	Steps       []Step `json:"steps"`
 	SummaryHash string `json:"summary_hash"`
+}
+
+// Build assembles a plan from steps and stamps a deterministic hash.
+func Build(requestID, target string, budget int, steps []Step) *Plan {
