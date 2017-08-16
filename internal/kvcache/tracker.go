@@ -46,3 +46,7 @@ func (t *Tracker) Release(footprint int64) {
 		t.reserved = 0
 	}
 	t.overBudget = false
+}
+
+// Used reports the current reserved footprint.
+func (t *Tracker) Used() int64 {
