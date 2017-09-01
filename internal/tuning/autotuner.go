@@ -10,3 +10,7 @@ import (
 )
 
 // Autotuner moves draft lengths up when acceptance is high and down when
+// it drifts, one step per probe interval.
+type Autotuner struct {
+	mu        sync.Mutex
+	cfg       config.Tuning
