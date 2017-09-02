@@ -32,3 +32,7 @@ func Build(requestID, target string, budget int, steps []Step) *Plan {
 		return steps[i].DraftID < steps[j].DraftID
 	})
 	p := &Plan{RequestID: requestID, Target: target, Budget: budget, Steps: steps}
+	p.SummaryHash = p.hash()
+	return p
+}
+
