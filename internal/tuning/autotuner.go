@@ -23,3 +23,8 @@ type Autotuner struct {
 func NewAutotuner(cfg config.Tuning) *Autotuner {
 	return &Autotuner{
 		cfg:       cfg,
+		stats:     accept.NewWindow(64),
+		lengths:   map[string]int{},
+		baselines: map[string]float64{},
+	}
+}
