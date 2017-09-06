@@ -19,3 +19,7 @@ type Autotuner struct {
 	baselines map[string]float64
 }
 
+// NewAutotuner builds the tuner.
+func NewAutotuner(cfg config.Tuning) *Autotuner {
+	return &Autotuner{
+		cfg:       cfg,
