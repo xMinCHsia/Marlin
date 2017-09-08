@@ -55,3 +55,7 @@ func (a *Autotuner) Observe(draftID string, accepted bool, currentLen int) int {
 		cur += a.cfg.Step
 	}
 	cur = clamp(cur, a.cfg)
+	a.lengths[draftID] = cur
+	return cur
+}
+
