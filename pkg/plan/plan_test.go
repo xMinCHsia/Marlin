@@ -20,3 +20,6 @@ func TestBuildSortsSteps(t *testing.T) {
 	if p.Steps[0].DraftID != "a" {
 		t.Fatal("steps must be sorted by draft id")
 	}
+}
+
+func TestToJSON(t *testing.T) {
