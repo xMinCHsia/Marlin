@@ -7,3 +7,7 @@ import (
 	"encoding/hex"
 	"encoding/json"
 	"sort"
+)
+
+// Step is one unit of a plan.
+type Step struct {
