@@ -11,3 +11,7 @@ import (
 
 // Step is one unit of a plan.
 type Step struct {
+	DraftID  string   `json:"draft_id"`
+	Tokens   []string `json:"tokens"`
+	Accepted int      `json:"accepted"`
+	Len      int      `json:"len"`
