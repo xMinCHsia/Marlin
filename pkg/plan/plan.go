@@ -28,3 +28,7 @@ type Plan struct {
 
 // Build assembles a plan from steps and stamps a deterministic hash.
 func Build(requestID, target string, budget int, steps []Step) *Plan {
+	sort.Slice(steps, func(i, j int) bool {
+		return steps[i].DraftID < steps[j].DraftID
+	})
+	p := &Plan{RequestID: requestID, Target: target, Budget: budget, Steps: steps}
