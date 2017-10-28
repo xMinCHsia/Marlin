@@ -39,3 +39,10 @@ func main() {
 		resp, err = client.Post(url, "application/json", bytes.NewReader(raw))
 	}
 	if err != nil {
+		fail("request: " + err.Error())
+	}
+	defer resp.Body.Close()
+	out, _ := io.ReadAll(resp.Body)
+	fmt.Printf("%d %s\n", resp.StatusCode, pretty(out))
+}
+
