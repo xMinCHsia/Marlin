@@ -18,3 +18,10 @@ import (
 	"github.com/xMinCHsia/marlin/internal/tuning"
 )
 
+func main() {
+	cfgPath := flag.String("config", "marlin.yaml", "path to config")
+	flag.Parse()
+
+	cfg, err := config.Load(*cfgPath)
+	if err != nil {
+		log.Fatalf("config: %v", err)
