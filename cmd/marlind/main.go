@@ -33,3 +33,10 @@ func main() {
 	tracker := kvcache.NewTracker(cfg.Target.MaxKVBytes)
 	controller := admission.NewController(cfg.Admission, tracker)
 	autotuner := tuning.NewAutotuner(cfg.Tuning)
+
+	srv := newServer(cfg, controller, autotuner, tracker)
+	httpSrv := &http.Server{
+		Addr:         cfg.ListenAddr,
+		Handler:      srv.Handler(),
+		ReadTimeout:  10 * time.Second,
+		WriteTimeout: 60 * time.Second,
