@@ -25,3 +25,11 @@ func main() {
 	cfg, err := config.Load(*cfgPath)
 	if err != nil {
 		log.Fatalf("config: %v", err)
+	}
+	if err := cfg.Validate(); err != nil {
+		log.Fatalf("config invalid: %v", err)
+	}
+
+	tracker := kvcache.NewTracker(cfg.Target.MaxKVBytes)
+	controller := admission.NewController(cfg.Admission, tracker)
+	autotuner := tuning.NewAutotuner(cfg.Tuning)
