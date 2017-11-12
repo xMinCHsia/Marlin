@@ -36,3 +36,7 @@ func Build(requestID, target string, budget int, steps []Step) *Plan {
 	return p
 }
 
+func (p *Plan) hash() string {
+	h := sha256.New()
+	raw, _ := json.Marshal(p.Steps)
+	_, _ = h.Write(raw)
