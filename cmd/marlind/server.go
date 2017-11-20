@@ -50,3 +50,12 @@ func (s *server) health(w http.ResponseWriter, _ *http.Request) {
 }
 
 func (s *server) status(w http.ResponseWriter, _ *http.Request) {
+	writeJSON(w, 200, map[string]any{
+		"status":   "ok",
+		"pressure": s.controller.Pressure(1 << 30),
+	})
+}
+
+func (s *server) plans(w http.ResponseWriter, _ *http.Request) {
+	s.mu.Lock()
+	defer s.mu.Unlock()
