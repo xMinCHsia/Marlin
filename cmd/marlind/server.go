@@ -32,3 +32,12 @@ func newServer(cfg configLike, c *admission.Controller, a *tuning.Autotuner, t *
 	return &server{cfg: cfg, controller: c, autotuner: a, tracker: t,
 		started: time.Now(), planHashes: []string{}}
 }
+
+// Handler returns the route table.
+func (s *server) Handler() http.Handler {
+	mux := http.NewServeMux()
+	mux.HandleFunc("GET /health", s.health)
+	mux.HandleFunc("GET /v1/status", s.status)
+	mux.HandleFunc("GET /v1/plans", s.plans)
+	mux.HandleFunc("POST /v1/tune", s.tune)
+	return mux
