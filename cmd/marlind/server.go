@@ -14,3 +14,12 @@ import (
 
 // server exposes the operator and plan endpoints.
 type server struct {
+	cfg         configLike
+	controller  *admission.Controller
+	autotuner   *tuning.Autotuner
+	tracker     *kvcache.Tracker
+	mu          sync.Mutex
+	planHashes  []string
+	started     time.Time
+}
+
