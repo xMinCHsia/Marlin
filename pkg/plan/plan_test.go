@@ -12,3 +12,6 @@ func TestBuildDeterministic(t *testing.T) {
 		t.Fatal("same input must produce the same hash")
 	}
 }
+
+func TestBuildSortsSteps(t *testing.T) {
+	steps := []Step{{DraftID: "z", Tokens: []string{"a"}, Len: 1},
