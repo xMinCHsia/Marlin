@@ -15,3 +15,6 @@ func TestBuildDeterministic(t *testing.T) {
 
 func TestBuildSortsSteps(t *testing.T) {
 	steps := []Step{{DraftID: "z", Tokens: []string{"a"}, Len: 1},
+		{DraftID: "a", Tokens: []string{"b"}, Len: 1}}
+	p := Build("r1", "t", 2, steps)
+	if p.Steps[0].DraftID != "a" {
