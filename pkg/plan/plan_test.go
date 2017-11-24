@@ -9,3 +9,6 @@ func TestBuildDeterministic(t *testing.T) {
 	p1 := Build("r1", "t", 2, steps)
 	p2 := Build("r1", "t", 2, steps)
 	if p1.SummaryHash != p2.SummaryHash {
+		t.Fatal("same input must produce the same hash")
+	}
+}
