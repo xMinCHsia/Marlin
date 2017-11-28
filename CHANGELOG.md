@@ -50,3 +50,14 @@ All notable changes to Marlin are documented here.
 
 ## [0.2.0] - 2023-03-17
 
+### Added
+- rejection statistics and per-draft counters
+- draft endpoint contract
+
+## [0.1.0] - 2022-09-14
+
+### Added
+- initial orchestrator daemon and CLI scaffold
+- proposal batch composition
+
+<!-- draft note 1 -->
