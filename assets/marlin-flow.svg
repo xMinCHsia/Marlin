@@ -4,3 +4,7 @@
   <g font-family="SF Mono, Menlo, Consolas, monospace" font-size="12" fill="#e2e8f0">
     <rect x="20" y="60" width="110" height="54" rx="6" fill="#1e293b" stroke="#475569"/>
     <text x="75" y="84" text-anchor="middle">request</text>
+    <text x="75" y="100" text-anchor="middle" fill="#94a3b8">budget: 12</text>
+    <path d="M130 87 H160" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+    <rect x="160" y="60" width="120" height="54" rx="6" fill="#1e293b" stroke="#38bdf8"/>
+    <text x="220" y="84" text-anchor="middle" fill="#38bdf8">ensemble</text>
