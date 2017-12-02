@@ -18,3 +18,5 @@ func TestBuildSortsSteps(t *testing.T) {
 		{DraftID: "a", Tokens: []string{"b"}, Len: 1}}
 	p := Build("r1", "t", 2, steps)
 	if p.Steps[0].DraftID != "a" {
+		t.Fatal("steps must be sorted by draft id")
+	}
