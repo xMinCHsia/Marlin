@@ -18,3 +18,10 @@ func main() {
 	cmd := flag.String("cmd", "status", "status | plans | drafts | tune")
 	flag.Parse()
 
+	var body any
+	switch *cmd {
+	case "status", "plans", "drafts":
+		body = nil
+	case "tune":
+		body = map[string]any{"force": true}
+	default:
