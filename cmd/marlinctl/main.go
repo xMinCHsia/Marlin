@@ -32,3 +32,10 @@ func main() {
 	client := &http.Client{Timeout: 30 * time.Second}
 	var resp *http.Response
 	var err error
+	if body == nil {
+		resp, err = client.Get(url)
+	} else {
+		raw, _ := json.Marshal(body)
+		resp, err = client.Post(url, "application/json", bytes.NewReader(raw))
+	}
+	if err != nil {
