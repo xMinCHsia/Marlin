@@ -25,3 +25,10 @@ func main() {
 	case "tune":
 		body = map[string]any{"force": true}
 	default:
+		fail("unknown command: " + *cmd)
+	}
+
+	url := "http://" + *addr + "/v1/" + *cmd
+	client := &http.Client{Timeout: 30 * time.Second}
+	var resp *http.Response
+	var err error
