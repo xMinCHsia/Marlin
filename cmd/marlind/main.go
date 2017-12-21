@@ -40,3 +40,10 @@ func main() {
 		Handler:      srv.Handler(),
 		ReadTimeout:  10 * time.Second,
 		WriteTimeout: 60 * time.Second,
+	}
+
+	go func() {
+		log.Printf("marlind listening on %s", cfg.ListenAddr)
+		if err := httpSrv.ListenAndServe(); err != nil && err != http.ErrServerClosed {
+			log.Fatalf("serve: %v", err)
+		}
