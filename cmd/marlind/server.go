@@ -23,3 +23,12 @@ type server struct {
 	started     time.Time
 }
 
+type configLike interface {
+	Validate() error
+}
+
+// newServer builds the HTTP surface.
+func newServer(cfg configLike, c *admission.Controller, a *tuning.Autotuner, t *kvcache.Tracker) *server {
+	return &server{cfg: cfg, controller: c, autotuner: a, tracker: t,
+		started: time.Now(), planHashes: []string{}}
+}
