@@ -41,3 +41,12 @@ func (s *server) Handler() http.Handler {
 	mux.HandleFunc("GET /v1/plans", s.plans)
 	mux.HandleFunc("POST /v1/tune", s.tune)
 	return mux
+}
+
+func (s *server) health(w http.ResponseWriter, _ *http.Request) {
+	writeJSON(w, 200, map[string]any{
+		"status": "ok", "uptime_s": int(time.Since(s.started).Seconds()),
+	})
+}
+
+func (s *server) status(w http.ResponseWriter, _ *http.Request) {
