@@ -8,3 +8,7 @@
     <path d="M130 87 H160" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
     <rect x="160" y="60" width="120" height="54" rx="6" fill="#1e293b" stroke="#38bdf8"/>
     <text x="220" y="84" text-anchor="middle" fill="#38bdf8">ensemble</text>
+    <text x="220" y="100" text-anchor="middle" fill="#94a3b8">weight split</text>
+    <path d="M280 87 H310" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+    <rect x="310" y="60" width="130" height="54" rx="6" fill="#1e293b" stroke="#f59e0b"/>
+    <text x="375" y="84" text-anchor="middle" fill="#f59e0b">admission</text>
