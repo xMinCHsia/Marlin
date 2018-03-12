@@ -19,3 +19,7 @@
     <text x="535" y="100" text-anchor="middle" fill="#94a3b8">verify / reject</text>
     <path d="M600 87 H630" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
     <rect x="630" y="60" width="110" height="54" rx="6" fill="#1e293b" stroke="#c084fc"/>
+    <text x="685" y="84" text-anchor="middle" fill="#c084fc">statistics</text>
+    <text x="685" y="100" text-anchor="middle" fill="#94a3b8">drift + tuning</text>
+    <path d="M685 114 V150 H220 V114" fill="none" stroke="#c084fc" stroke-width="1.5"
+          stroke-dasharray="4 4" marker-end="url(#a)"/>
