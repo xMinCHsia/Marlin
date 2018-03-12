@@ -16,3 +16,6 @@
     <path d="M440 87 H470" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
     <rect x="470" y="60" width="130" height="54" rx="6" fill="#1e293b" stroke="#4ade80"/>
     <text x="535" y="84" text-anchor="middle" fill="#4ade80">target engine</text>
+    <text x="535" y="100" text-anchor="middle" fill="#94a3b8">verify / reject</text>
+    <path d="M600 87 H630" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+    <rect x="630" y="60" width="110" height="54" rx="6" fill="#1e293b" stroke="#c084fc"/>
