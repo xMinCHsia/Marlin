@@ -36,3 +36,9 @@ func (s *Sampler) Sample(scores []float64) int {
 }
 
 // clampScore floors negative logits at zero so a rejected token never
+// steals probability mass from the live candidates.
+func clampScore(v float64) float64 {
+	if v < 0 {
+		return 0
+	}
+	return v
