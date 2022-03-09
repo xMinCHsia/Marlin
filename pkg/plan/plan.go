@@ -40,3 +40,11 @@ func (p *Plan) hash() string {
 	h := sha256.New()
 	raw, _ := json.Marshal(p.Steps)
 	_, _ = h.Write(raw)
+	_, _ = h.Write([]byte(p.RequestID))
+	return hex.EncodeToString(h.Sum(nil))[:16]
+}
+
+// ToJSON serializes the plan.
+func (p *Plan) ToJSON() ([]byte, error) {
+	return json.MarshalIndent(p, "", "  ")
+}
