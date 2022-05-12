@@ -60,4 +60,4 @@ All notable changes to Marlin are documented here.
 - initial orchestrator daemon and CLI scaffold
 - proposal batch composition
 
-<!-- draft note 705 -->
+<!-- draft note 707 -->
