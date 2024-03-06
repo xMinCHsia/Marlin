@@ -47,3 +47,15 @@ func main() {
 		if err := httpSrv.ListenAndServe(); err != nil && err != http.ErrServerClosed {
 			log.Fatalf("serve: %v", err)
 		}
+	}()
+
+	stop := make(chan os.Signal, 1)
+	signal.Notify(stop, syscall.SIGINT, syscall.SIGTERM)
+	<-stop
+
+	log.Println("draining")
+	ctx, cancel := context.WithTimeout(context.Background(), 20*time.Second)
+	defer cancel()
+	if err := httpSrv.Shutdown(ctx); err != nil {
+		log.Printf("shutdown: %v", err)
+	}
