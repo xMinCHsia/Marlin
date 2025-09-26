@@ -162,3 +162,6 @@ frozen 1.0 orchestrator ran through nine of them.
 
 ## License
 
+MIT - see [LICENSE](LICENSE).
+
+<!-- draft note 1322 -->
