@@ -43,3 +43,10 @@ $ marlinctl -addr localhost:8590 tune        # force a tuning pass
 - After a target model swap, reset statistics (restart the daemon) - the
   old acceptance baselines are meaningless.
 
+## Monitoring
+
+Export per-draft: acceptance rate (window + baseline), tuned length,
+admission rejections. Alert on:
+
+- acceptance rate below 0.25 for 10 minutes (draft is dead weight)
+- pressure above 0.9 (cache starvation)
