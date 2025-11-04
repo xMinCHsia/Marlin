@@ -51,3 +51,12 @@ func (w *Window) Rate(draftID string) float64 {
 // baseline is the rate observed before the current window.
 func (w *Window) Drift(draftID string, baseline, threshold float64) bool {
 	rate := w.Rate(draftID)
+	return baseline-rate > threshold && baseline > 0
+}
+
+// Reset clears all windows (e.g. after a target model update).
+func (w *Window) Reset() {
+	w.mu.Lock()
+	defer w.mu.Unlock()
+	w.events = map[string][]bool{}
+}
