@@ -98,3 +98,19 @@ func total(w map[string]float64) float64 {
 		s += v
 	}
 	if s <= 0 {
+		return 1
+	}
+	return s
+}
+
+func sumLen(cands []cand) int {
+	s := 0
+	for _, c2 := range cands {
+		s += c2.len
+	}
+	return s
+}
+
+func (e *Ensemble) String() string {
+	return fmt.Sprintf("ensemble(%d drafts)", len(e.models))
+}
