@@ -40,3 +40,11 @@ func TestSampleIgnoresNegativeScores(t *testing.T) {
 	}
 }
 
+func TestClampScore(t *testing.T) {
+	if got := clampScore(-0.5); got != 0 {
+		t.Fatalf("expected 0 for negative, got %v", got)
+	}
+	if got := clampScore(2.5); got != 2.5 {
+		t.Fatalf("expected 2.5, got %v", got)
+	}
+}
