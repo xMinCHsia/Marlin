@@ -58,3 +58,13 @@ func (t *Tracker) Used() int64 {
 // Headroom reports the configured safety margin in bytes.
 func (t *Tracker) Headroom() int64 {
 	t.mu.RLock()
+	defer t.mu.RUnlock()
+	return t.headroom
+}
+
+// OverBudget reports whether the last reservation was rejected.
+func (t *Tracker) OverBudget() bool {
+	t.mu.RLock()
+	defer t.mu.RUnlock()
+	return t.overBudget
+}
