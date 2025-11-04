@@ -115,3 +115,21 @@ func (c *Config) Validate() error {
 			return fmt.Errorf("each draft needs id and endpoint")
 		}
 		if seen[dr.ID] {
+			return fmt.Errorf("duplicate draft id %q", dr.ID)
+		}
+		seen[dr.ID] = true
+		if dr.MaxProposalLen < 1 || dr.MaxProposalLen > 64 {
+			return fmt.Errorf("draft %q: max_proposal_len must be 1..64", dr.ID)
+		}
+		if dr.Weight <= 0 {
+			return fmt.Errorf("draft %q: weight must be positive", dr.ID)
+		}
+	}
+	if c.Admission.HeadroomRatio < 0 || c.Admission.HeadroomRatio > 0.9 {
+		return fmt.Errorf("admission.headroom_ratio must be 0..0.9")
+	}
+	if c.Tuning.Enabled && (c.Tuning.MinDraftLen < 1 || c.Tuning.MaxDraftLen < c.Tuning.MinDraftLen) {
+		return fmt.Errorf("tuning bounds are invalid")
+	}
+	return nil
+}
