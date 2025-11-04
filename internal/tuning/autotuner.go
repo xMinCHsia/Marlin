@@ -64,3 +64,14 @@ func (a *Autotuner) Length(draftID string) int {
 	a.mu.Lock()
 	defer a.mu.Unlock()
 	return a.lengths[draftID]
+}
+
+func clamp(n int, cfg config.Tuning) int {
+	if n < cfg.MinDraftLen {
+		return cfg.MinDraftLen
+	}
+	if n > cfg.MaxDraftLen {
+		return cfg.MaxDraftLen
+	}
+	return n
+}
