@@ -42,3 +42,11 @@ func (r *Rejector) Rejected(draftID string) int {
 }
 
 // Rate returns the acceptance rate (0..1) for a draft.
+func (r *Rejector) Rate(draftID string) float64 {
+	a := r.accepted[draftID]
+	rej := r.rejected[draftID]
+	if a+rej == 0 {
+		return 0
+	}
+	return float64(a) / float64(a+rej)
+}
