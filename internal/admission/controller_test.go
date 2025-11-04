@@ -31,3 +31,9 @@ func TestAdmitRejectsOverBudget(t *testing.T) {
 
 func TestPressureFraction(t *testing.T) {
 	tr := kvcache.NewTracker(1000)
+	c := NewController(config.Admission{HeadroomRatio: 0.2, ProbeIntervalS: 10}, tr)
+	_, _ = c.Admit("d1", 500)
+	if got := c.Pressure(1000); got != 0.5 {
+		t.Fatalf("expected 0.5 pressure, got %v", got)
+	}
+}
