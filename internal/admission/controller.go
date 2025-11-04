@@ -49,3 +49,12 @@ func (c *Controller) Admit(id string, footprint int64) (ok bool, waitS int) {
 func (c *Controller) Release(footprint int64) {
 	c.tracker.Release(footprint)
 }
+
+// Pressure reports current usage as a fraction of the budget.
+func (c *Controller) Pressure(maxBytes int64) float64 {
+	used := float64(c.tracker.Used())
+	if maxBytes <= 0 {
+		return 1.0
+	}
+	return used / float64(maxBytes)
+}
