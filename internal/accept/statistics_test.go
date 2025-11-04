@@ -40,3 +40,11 @@ func TestDriftDetected(t *testing.T) {
 	}
 }
 
+func TestReset(t *testing.T) {
+	w := NewWindow(8)
+	w.Record("d1", true)
+	w.Reset()
+	if got := w.Rate("d1"); got != 0 {
+		t.Fatalf("expected 0 after reset, got %v", got)
+	}
+}
