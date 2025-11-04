@@ -90,3 +90,18 @@ drafts:
 		t.Fatalf("expected default listen addr, got %q", cfg.ListenAddr)
 	}
 	if cfg.Target.MaxKVBytes != 8<<30 {
+		t.Fatalf("expected default kv budget, got %d", cfg.Target.MaxKVBytes)
+	}
+	if cfg.Admission.HeadroomRatio != 0.2 {
+		t.Fatalf("expected default headroom, got %v", cfg.Admission.HeadroomRatio)
+	}
+	if cfg.Drafts[0].MaxProposalLen != 8 {
+		t.Fatalf("expected default max proposal len, got %d", cfg.Drafts[0].MaxProposalLen)
+	}
+	if cfg.Drafts[0].Weight != 1.0 {
+		t.Fatalf("expected default weight, got %v", cfg.Drafts[0].Weight)
+	}
+	if err := cfg.Validate(); err != nil {
+		t.Fatalf("defaulted config should validate: %v", err)
+	}
+}
