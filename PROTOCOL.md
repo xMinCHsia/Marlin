@@ -53,3 +53,11 @@ sampler when merging proposals.
 Admission is server-side and invisible to callers: when a draft is over
 budget, the response simply has fewer steps. `rejected` drafts do not
 appear in the plan - only the accepted exchange does.
+
+## Error codes
+
+| code | meaning |
+|---|---|
+| 400 | malformed plan request or payload |
+| 503 | admission budget exhausted - retry with backoff |
+| 504 | draft proposal timed out; request continues draft-less |
