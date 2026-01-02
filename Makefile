@@ -1,19 +1,17 @@
 
-GO ?= go
+root = true
 
-.PHONY: build test vet bench run clean
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
 
-build:
-	$(GO) build ./...
+[*.go]
+indent_style = tab
 
-test:
-	$(GO) build ./...
-	$(GO) test ./... -race -count=1
+[*.{yml,yaml,json,md}]
+indent_style = space
+indent_size = 2
 
-vet:
-	$(GO) vet ./...
-
-bench:
-	$(GO) test ./... -bench=. -benchmem -run=^$$
-
-run:
+// draft note 1350
