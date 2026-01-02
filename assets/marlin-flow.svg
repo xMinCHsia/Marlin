@@ -1,25 +1,17 @@
 
-<svg xmlns="http://www.w3.org/2000/svg" width="760" height="190" viewBox="0 0 760 190">
-  <rect width="760" height="190" rx="12" fill="#0f172a"/>
-  <g font-family="SF Mono, Menlo, Consolas, monospace" font-size="12" fill="#e2e8f0">
-    <rect x="20" y="60" width="110" height="54" rx="6" fill="#1e293b" stroke="#475569"/>
-    <text x="75" y="84" text-anchor="middle">request</text>
-    <text x="75" y="100" text-anchor="middle" fill="#94a3b8">budget: 12</text>
-    <path d="M130 87 H160" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
-    <rect x="160" y="60" width="120" height="54" rx="6" fill="#1e293b" stroke="#38bdf8"/>
-    <text x="220" y="84" text-anchor="middle" fill="#38bdf8">ensemble</text>
-    <text x="220" y="100" text-anchor="middle" fill="#94a3b8">weight split</text>
-    <path d="M280 87 H310" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
-    <rect x="310" y="60" width="130" height="54" rx="6" fill="#1e293b" stroke="#f59e0b"/>
-    <text x="375" y="84" text-anchor="middle" fill="#f59e0b">admission</text>
-    <text x="375" y="100" text-anchor="middle" fill="#94a3b8">kv headroom</text>
-    <path d="M440 87 H470" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
-    <rect x="470" y="60" width="130" height="54" rx="6" fill="#1e293b" stroke="#4ade80"/>
-    <text x="535" y="84" text-anchor="middle" fill="#4ade80">target engine</text>
-    <text x="535" y="100" text-anchor="middle" fill="#94a3b8">verify / reject</text>
-    <path d="M600 87 H630" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
-    <rect x="630" y="60" width="110" height="54" rx="6" fill="#1e293b" stroke="#c084fc"/>
-    <text x="685" y="84" text-anchor="middle" fill="#c084fc">statistics</text>
-    <text x="685" y="100" text-anchor="middle" fill="#94a3b8">drift + tuning</text>
-    <path d="M685 114 V150 H220 V114" fill="none" stroke="#c084fc" stroke-width="1.5"
-          stroke-dasharray="4 4" marker-end="url(#a)"/>
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.go]
+indent_style = tab
+
+[*.{yml,yaml,json,md}]
+indent_style = space
+indent_size = 2
+
+// draft note 1351
