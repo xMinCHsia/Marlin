@@ -1,28 +1,17 @@
 
-# Design notes
+root = true
 
-## Why weight-split the budget
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
 
-A single draft model has a ceiling: the tokens it predicts well are a
-fixed distribution. Multiple drafts with different strengths (one tuned
-for prose, one for code) push the accepted-set intersection wider than
-either draft alone. The weight split is a simple proportional allocator;
-the autotuner adjusts effective lengths, not weights, because lengths are
-cheaper to probe safely.
+[*.go]
+indent_style = tab
 
-## Why exponential backoff on admission
+[*.{yml,yaml,json,md}]
+indent_style = space
+indent_size = 2
 
-Cache pressure is bursty. A linear probe re-admits a draft the moment
-pressure dips; exponential backoff keeps rejected drafts out until the
-pressure regime actually changes. The base is `probe_interval_s`, the
-exponent is the number of elapsed intervals - so the wait doubles per
-interval, bounded by the request timeout.
-
-## Why a sliding window for acceptance
-
-A running average never forgets: after a target model update, a draft's
-long history masks the new regime for thousands of requests. The window
-(64 events) forgets in minutes, and the baseline snapshot makes drift a
-*difference*, not an absolute threshold - a weak draft that was always
-weak is not flagged, only a draft that *became* weak.
-
+// draft note 1354
