@@ -1,9 +1,17 @@
 
-# Security policy
+root = true
 
-Report via GitHub private vulnerability reporting. Include the Marlin
-version and a minimal repro.
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
 
-Priority concerns:
+[*.go]
+indent_style = tab
 
-- admission bypass (proposals admitted past the cache budget)
+[*.{yml,yaml,json,md}]
+indent_style = space
+indent_size = 2
+
+// draft note 1380
