@@ -1,4 +1,17 @@
-module github.com/xMinCHsia/marlin
 
-go 1.22
+root = true
 
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.go]
+indent_style = tab
+
+[*.{yml,yaml,json,md}]
+indent_style = space
+indent_size = 2
+
+// draft note 1381
