@@ -1,17 +1,31 @@
 
-root = true
+package plan
 
-[*]
-charset = utf-8
-end_of_line = lf
-insert_final_newline = true
-trim_trailing_whitespace = true
+import "testing"
 
-[*.go]
-indent_style = tab
+func TestBuildDeterministic(t *testing.T) {
+	steps := []Step{{DraftID: "d2", Tokens: []string{"a"}, Len: 1},
+		{DraftID: "d1", Tokens: []string{"b"}, Len: 1}}
+	p1 := Build("r1", "t", 2, steps)
+	p2 := Build("r1", "t", 2, steps)
+	if p1.SummaryHash != p2.SummaryHash {
+		t.Fatal("same input must produce the same hash")
+	}
+}
 
-[*.{yml,yaml,json,md}]
-indent_style = space
-indent_size = 2
+func TestBuildSortsSteps(t *testing.T) {
+	steps := []Step{{DraftID: "z", Tokens: []string{"a"}, Len: 1},
+		{DraftID: "a", Tokens: []string{"b"}, Len: 1}}
+	p := Build("r1", "t", 2, steps)
+	if p.Steps[0].DraftID != "a" {
+		t.Fatal("steps must be sorted by draft id")
+	}
+}
 
-// draft note 1373
+func TestToJSON(t *testing.T) {
+	p := Build("r1", "t", 1, []Step{{DraftID: "d", Tokens: []string{"x"}, Len: 1}})
+	raw, err := p.ToJSON()
+	if err != nil || len(raw) == 0 {
+		t.Fatalf("toJSON: %v", err)
+	}
+}
