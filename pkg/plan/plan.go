@@ -48,3 +48,4 @@ func (p *Plan) hash() string {
 func (p *Plan) ToJSON() ([]byte, error) {
 	return json.MarshalIndent(p, "", "  ")
 }
+
