@@ -1,17 +1,51 @@
 
-root = true
+// Package plan emits deterministic speculative-decoding plans.
+package plan
 
-[*]
-charset = utf-8
-end_of_line = lf
-insert_final_newline = true
-trim_trailing_whitespace = true
+import (
+	"crypto/sha256"
+	"encoding/hex"
+	"encoding/json"
+	"sort"
+)
 
-[*.go]
-indent_style = tab
+// Step is one unit of a plan.
+type Step struct {
+	DraftID  string   `json:"draft_id"`
+	Tokens   []string `json:"tokens"`
+	Accepted int      `json:"accepted"`
+	Len      int      `json:"len"`
+}
 
-[*.{yml,yaml,json,md}]
-indent_style = space
-indent_size = 2
+// Plan is the full execution plan for one request.
+type Plan struct {
+	RequestID   string `json:"request_id"`
+	Target      string `json:"target"`
+	Budget      int    `json:"budget"`
+	Steps       []Step `json:"steps"`
+	SummaryHash string `json:"summary_hash"`
+}
 
-// draft note 1377
+// Build assembles a plan from steps and stamps a deterministic hash.
+func Build(requestID, target string, budget int, steps []Step) *Plan {
+	sort.Slice(steps, func(i, j int) bool {
+		return steps[i].DraftID < steps[j].DraftID
+	})
+	p := &Plan{RequestID: requestID, Target: target, Budget: budget, Steps: steps}
+	p.SummaryHash = p.hash()
+	return p
+}
+
+func (p *Plan) hash() string {
+	h := sha256.New()
+	raw, _ := json.Marshal(p.Steps)
+	_, _ = h.Write(raw)
+	_, _ = h.Write([]byte(p.RequestID))
+	return hex.EncodeToString(h.Sum(nil))[:16]
+}
+
+// ToJSON serializes the plan.
+func (p *Plan) ToJSON() ([]byte, error) {
+	return json.MarshalIndent(p, "", "  ")
+}
+
