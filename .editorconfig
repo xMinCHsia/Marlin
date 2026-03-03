@@ -10,3 +10,8 @@ trim_trailing_whitespace = true
 [*.go]
 indent_style = tab
 
+[*.{yml,yaml,json,md}]
+indent_style = space
+indent_size = 2
+
+// draft note 1378
