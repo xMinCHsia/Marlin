@@ -1,17 +1,77 @@
+// Package main: HTTP surface for the orchestrator.
+package main
 
-root = true
+import (
+	"encoding/json"
+	"net/http"
+	"sync"
+	"time"
 
-[*]
-charset = utf-8
-end_of_line = lf
-insert_final_newline = true
-trim_trailing_whitespace = true
+	"github.com/xMinCHsia/marlin/internal/admission"
+	"github.com/xMinCHsia/marlin/internal/kvcache"
+	"github.com/xMinCHsia/marlin/internal/tuning"
+)
 
-[*.go]
-indent_style = tab
+// server exposes the operator and plan endpoints.
+type server struct {
+	cfg         configLike
+	controller  *admission.Controller
+	autotuner   *tuning.Autotuner
+	tracker     *kvcache.Tracker
+	mu          sync.Mutex
+	planHashes  []string
+	started     time.Time
+}
 
-[*.{yml,yaml,json,md}]
-indent_style = space
-indent_size = 2
+type configLike interface {
+	Validate() error
+}
 
-// draft note 1423
+// newServer builds the HTTP surface.
+func newServer(cfg configLike, c *admission.Controller, a *tuning.Autotuner, t *kvcache.Tracker) *server {
+	return &server{cfg: cfg, controller: c, autotuner: a, tracker: t,
+		started: time.Now(), planHashes: []string{}}
+}
+
+// Handler returns the route table.
+func (s *server) Handler() http.Handler {
+	mux := http.NewServeMux()
+	mux.HandleFunc("GET /health", s.health)
+	mux.HandleFunc("GET /v1/status", s.status)
+	mux.HandleFunc("GET /v1/plans", s.plans)
+	mux.HandleFunc("POST /v1/tune", s.tune)
+	return mux
+}
+
+func (s *server) health(w http.ResponseWriter, _ *http.Request) {
+	writeJSON(w, 200, map[string]any{
+		"status": "ok", "uptime_s": int(time.Since(s.started).Seconds()),
+	})
+}
+
+func (s *server) status(w http.ResponseWriter, _ *http.Request) {
+	writeJSON(w, 200, map[string]any{
+		"status":   "ok",
+		"pressure": s.controller.Pressure(1 << 30),
+	})
+}
+
+func (s *server) plans(w http.ResponseWriter, _ *http.Request) {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+	writeJSON(w, 200, map[string]any{"plans": s.planHashes})
+}
+
+func (s *server) tune(w http.ResponseWriter, _ *http.Request) {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+	s.planHashes = append(s.planHashes, "tune")
+	writeJSON(w, 200, map[string]any{"tuned": true})
+}
+
+func writeJSON(w http.ResponseWriter, status int, body any) {
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(status)
+	_ = json.NewEncoder(w).Encode(body)
+}
+
