@@ -1,17 +1,64 @@
 
-root = true
+# Marlin Protocol
 
-[*]
-charset = utf-8
-end_of_line = lf
-insert_final_newline = true
-trim_trailing_whitespace = true
+## Orchestration surface
 
-[*.go]
-indent_style = tab
+```
+GET  /health                       # liveness + pressure
+GET  /v1/status                    # ensemble summary
+GET  /v1/drafts                    # per-draft acceptance stats
+GET  /v1/plans                     # recent plan hashes
+POST /v1/tune                      # force a tuning pass
+```
 
-[*.{yml,yaml,json,md}]
-indent_style = space
-indent_size = 2
+## Plan lifecycle
 
-// draft note 1387
+A request produces one plan:
+
+```
+POST /v1/plans
+{"request_id":"r-42","budget":12}
+```
+
+Response:
+
+```json
+{
+  "request_id": "r-42",
+  "target": "http://127.0.0.1:8000",
+  "budget": 12,
+  "steps": [
+    { "draft_id": "draft-small", "tokens": ["the","quick"], "accepted": 2, "len": 2 }
+  ],
+  "summary_hash": "9f3ab2c1d4e5f607"
+}
+```
+
+`accepted` is filled by the target verification pass. The hash covers the
+ordered steps + request id, so identical inputs produce identical plans.
+
+## Draft endpoint contract
+
+Drafts expose `POST /propose` returning:
+
+```json
+{ "tokens": ["a","b","c"], "logprobs": [0.9, 0.8, 0.7] }
+```
+
+Marlin caps the request at the tuned length; `logprobs` are used by the
+sampler when merging proposals.
+
+## Admission
+
+Admission is server-side and invisible to callers: when a draft is over
+budget, the response simply has fewer steps. `rejected` drafts do not
+appear in the plan - only the accepted exchange does.
+
+## Error codes
+
+| code | meaning |
+|---|---|
+| 400 | malformed plan request or payload |
+| 503 | admission budget exhausted - retry with backoff |
+| 504 | draft proposal timed out; request continues draft-less |
+
