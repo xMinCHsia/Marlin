@@ -1,17 +1,21 @@
 
-root = true
+# Contributing
 
-[*]
-charset = utf-8
-end_of_line = lf
-insert_final_newline = true
-trim_trailing_whitespace = true
+Marlin is inference infrastructure - changes shift real latency and
+memory on the serving path.
 
-[*.go]
-indent_style = tab
+- `make test` before every push (mirrors CI: build + race tests).
+- Stdlib only in this module; the YAML parser is the only dependency.
+- One logical change per commit; `area: change` present-tense messages.
+- API or plan-format changes require: CHANGELOG entry, PROTOCOL update
+  and a DESIGN note.
+- Tests must cover failure paths: over-budget admission, drift, empty
+  ensembles, zero-score sampling.
 
-[*.{yml,yaml,json,md}]
-indent_style = space
-indent_size = 2
+## Development loop
 
-// draft note 1422
+```console
+$ make build && make test
+$ go run ./cmd/marlind -config marlin.yaml.example
+$ go run ./cmd/marlinctl -addr localhost:8590 status
+```
