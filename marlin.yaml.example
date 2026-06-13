@@ -1,17 +1,27 @@
 
-root = true
+# Marlin orchestrator configuration
+listen_addr: "127.0.0.1:8590"
 
-[*]
-charset = utf-8
-end_of_line = lf
-insert_final_newline = true
-trim_trailing_whitespace = true
+target:
+  endpoint: "http://127.0.0.1:8000"
+  max_kv_bytes: 8589934592        # 8 GiB cache budget for the target
 
-[*.go]
-indent_style = tab
+drafts:
+  - id: "draft-small"
+    endpoint: "http://127.0.0.1:8101"
+    max_proposal_len: 8
+    weight: 1.0
+  - id: "draft-code"
+    endpoint: "http://127.0.0.1:8102"
+    max_proposal_len: 6
+    weight: 0.7
 
-[*.{yml,yaml,json,md}]
-indent_style = space
-indent_size = 2
+admission:
+  headroom_ratio: 0.2             # keep 20% of target budget free
+  probe_interval_s: 10
 
-// draft note 1423
+tuning:
+  enabled: true
+  min_draft_len: 2
+  max_draft_len: 12
+  step: 1
