@@ -1,17 +1,11 @@
 
-root = true
+# Security policy
 
-[*]
-charset = utf-8
-end_of_line = lf
-insert_final_newline = true
-trim_trailing_whitespace = true
+Report via GitHub private vulnerability reporting. Include the Marlin
+version and a minimal repro.
 
-[*.go]
-indent_style = tab
+Priority concerns:
 
-[*.{yml,yaml,json,md}]
-indent_style = space
-indent_size = 2
-
-// draft note 1404
+- admission bypass (proposals admitted past the cache budget)
+- plan hash collisions weakening replay auditing
+- draft endpoint confusion (wrong draft serving a request)
