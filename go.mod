@@ -1,17 +1,5 @@
+module github.com/xMinCHsia/marlin
 
-root = true
+go 1.22
 
-[*]
-charset = utf-8
-end_of_line = lf
-insert_final_newline = true
-trim_trailing_whitespace = true
-
-[*.go]
-indent_style = tab
-
-[*.{yml,yaml,json,md}]
-indent_style = space
-indent_size = 2
-
-// draft note 1456
+require gopkg.in/yaml.v3 v3.0.1
