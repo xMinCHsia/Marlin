@@ -1,17 +1,23 @@
 
-root = true
+GO ?= go
 
-[*]
-charset = utf-8
-end_of_line = lf
-insert_final_newline = true
-trim_trailing_whitespace = true
+.PHONY: build test vet bench run clean
 
-[*.go]
-indent_style = tab
+build:
+	$(GO) build ./...
 
-[*.{yml,yaml,json,md}]
-indent_style = space
-indent_size = 2
+test:
+	$(GO) build ./...
+	$(GO) test ./... -race -count=1
 
-// draft note 1451
+vet:
+	$(GO) vet ./...
+
+bench:
+	$(GO) test ./... -bench=. -benchmem -run=^$$
+
+run:
+	$(GO) run ./cmd/marlind -config marlin.yaml
+
+clean:
+	rm -rf bin coverage.out
