@@ -1,7 +1,10 @@
 
 package draft
 
-import "testing"
+import (
+	"math"
+	"testing"
+)
 
 func TestSampleRespectsWeights(t *testing.T) {
 	s := NewSampler(42)
@@ -46,5 +49,21 @@ func TestClampScore(t *testing.T) {
 	}
 	if got := clampScore(2.5); got != 2.5 {
 		t.Fatalf("expected 2.5, got %v", got)
+	}
+}
+
+func TestSampleIgnoresNonFiniteScores(t *testing.T) {
+	s := NewSampler(4)
+	// Only the middle candidate carries real mass; NaN and +Inf must not
+	// win the draw or poison the total.
+	if got := s.Sample([]float64{math.NaN(), 3, math.Inf(1)}); got != 1 {
+		t.Fatalf("expected index 1, got %d", got)
+	}
+}
+
+func TestSampleEmptyReturnsMinusOne(t *testing.T) {
+	s := NewSampler(5)
+	if got := s.Sample(nil); got != -1 {
+		t.Fatalf("expected -1 for empty candidates, got %d", got)
 	}
 }

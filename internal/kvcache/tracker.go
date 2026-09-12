@@ -22,11 +22,15 @@ func NewTracker(maxBytes int64) *Tracker {
 
 // Reserve books footprint bytes for one draft proposal.
 // It returns false when the reservation would push the target over budget
-// (after headroom is subtracted).
+// (after headroom is subtracted). Non-positive footprints are rejected so a
+// malformed estimate can never loosen the accounting.
 func (t *Tracker) Reserve(footprint int64, headroomRatio float64) bool {
 	t.mu.Lock()
 	defer t.mu.Unlock()
-	headroom := int64(float64(t.maxBytes) * headroomRatio)
+	if footprint <= 0 {
+		return false
+	}
+	headroom := int64(float64(t.maxBytes) * clampRatio(headroomRatio))
 	usable := t.maxBytes - headroom
 	if t.reserved+footprint > usable {
 		t.overBudget = true
@@ -35,6 +39,18 @@ func (t *Tracker) Reserve(footprint int64, headroomRatio float64) bool {
 	t.reserved += footprint
 	t.headroom = headroom
 	return true
+}
+
+// clampRatio keeps the headroom fraction inside the sane [0,1] window so a
+// malformed value can neither disable the guard nor starve the budget.
+func clampRatio(r float64) float64 {
+	if r != r || r < 0 { // NaN or negative
+		return 0
+	}
+	if r > 1 {
+		return 1
+	}
+	return r
 }
 
 // Release returns footprint bytes to the pool.
